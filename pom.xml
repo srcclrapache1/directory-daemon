@@ -35,5 +35,11 @@
       <version>1.0.1</version>
     </dependency>
   </dependencies>
+
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</connection>
+    <developerConnection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</developerConnection>
+  </scm>
+
 </project>
 
