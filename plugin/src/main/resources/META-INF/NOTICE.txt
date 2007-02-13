@@ -8,6 +8,9 @@ This product uses Maven (http://maven.apache.org/).
 
 This product uses Plexus (http://plexus.codehaus.org/).
 
+This product uses the JUnit 
+(http://junit.org/).
+
 This product uses the IzPack compiler
 (http://www.izforge.com/izpack/).
 
