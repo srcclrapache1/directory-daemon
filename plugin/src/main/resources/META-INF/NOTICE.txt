@@ -4,8 +4,6 @@ Copyright 2007 The Apache Software Foundation
 This product includes software developed at 
 The Apache Software Foundation (http://www.apache.org/).
 
-This product uses Maven (http://maven.apache.org/).
-
 This product uses Plexus (http://plexus.codehaus.org/).
 
 This product uses the JUnit 
@@ -16,6 +14,3 @@ This product uses the IzPack compiler
 
 This product includes a distribution of NLOG4J 
 (http://www.slf4j.org/nlog4j/).
-
-This product includes a distribution of commons-daemon 
-(http://jakarta.apache.org/commons/daemon/).
