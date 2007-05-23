@@ -41,5 +41,16 @@
     <developerConnection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</developerConnection>
   </scm>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <tagBase>https://svn.apache.org/repos/asf/directory/daemon/releases</tagBase>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
 
