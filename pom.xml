@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.apache.directory</groupId>
@@ -11,7 +11,7 @@
   <name>Apache Directory Daemon</name>
   <packaging>pom</packaging>  
 
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
   <description>
     Reusable framework for daemon applications based on Commons Daemon
     Jsvc and Procrun. A small installation layout pattern combined with
@@ -37,8 +37,8 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</connection>
-    <developerConnection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</developerConnection>
+    <connection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/releases/build-1.0.2</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/releases/build-1.0.2</developerConnection>
   </scm>
 
   <build>
