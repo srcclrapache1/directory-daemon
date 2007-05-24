@@ -11,7 +11,7 @@
   <name>Apache Directory Daemon</name>
   <packaging>pom</packaging>  
 
-  <version>1.0.2</version>
+  <version>1.0.3-SNAPSHOT</version>
   <description>
     Reusable framework for daemon applications based on Commons Daemon
     Jsvc and Procrun. A small installation layout pattern combined with
@@ -37,8 +37,8 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/releases/build-1.0.2</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/releases/build-1.0.2</developerConnection>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</connection>
+    <developerConnection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/1.0</developerConnection>
   </scm>
 
   <build>
