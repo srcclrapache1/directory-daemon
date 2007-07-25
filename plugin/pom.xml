@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.apache.directory.daemon</groupId>
-    <artifactId>build</artifactId>
+    <artifactId>daemon-parent</artifactId>
     <version>1.0.3-SNAPSHOT</version>
   </parent>
   <artifactId>daemon-plugin</artifactId>
@@ -43,6 +43,16 @@
       <groupId>izpack</groupId>
       <artifactId>standalone-compiler</artifactId>
       <version>3.8.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl104-over-slf4j</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>nlog4j</artifactId>
+      <version>1.2.25</version>
     </dependency>
   </dependencies>
 </project>
