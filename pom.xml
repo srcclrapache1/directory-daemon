@@ -127,9 +127,8 @@
 
   <distributionManagement>
     <site>
-      <id>apache.directory.studio</id>
-      <!-- FIXME set final url according to CI -->
-      <url>scpexe://people.apache.org/home/felixk/public_html/projects/directory/daemon/</url>
+      <id>apache.directory.daemon</id>
+      <url>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</url>
     </site>
   </distributionManagement>
 
