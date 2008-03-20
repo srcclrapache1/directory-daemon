@@ -42,11 +42,6 @@
     <url>http://issues.apache.org/jira/browse/DIR</url>
   </issueManagement>
 
-  <ciManagement>
-    <system>Continuum</system>
-    <url>http://vm094.oxylos.org/continuum/</url>
-  </ciManagement>
-
   <modules>
     <module>bootstrappers</module>
     <module>plugin</module>
