@@ -238,6 +238,8 @@ public class CreateImageCommand extends MojoCommand
         // Copy Wrapper Files
         // -------------------------------------------------------------------
 
+        // TODO I really wonder if wrapper bin, lib for macosx and solaris don't need to be
+        // copied in case if os?
         if ( target.getDaemonFramework().equalsIgnoreCase( "tanuki" ) )
         {
             if ( target.getOsName().equalsIgnoreCase( "linux" ) )
@@ -285,7 +287,27 @@ public class CreateImageCommand extends MojoCommand
             }
             else
             {
-                throw new MojoFailureException( "Only OsName='linux' supported for configured daemon framework" );
+                if ( target.getOsFamily().equalsIgnoreCase( "windows" ) )
+                {
+                    try
+                    {
+                        MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                            "wrapper/bin/wrapper-windows-x86-32.exe" ), new File( layout.getBinDirectory(), target
+                            .getApplication().getName() ) );
+                        MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                            "wrapper/lib/wrapper-windows-x86-32.dll" ), new File( layout.getLibDirectory(),
+                            "libwrapper.so" ) );
+                    }
+                    catch ( IOException e )
+                    {
+                        throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories" );
+                    }
+                }
+                else
+                {
+                    throw new MojoFailureException(
+                        "Not supported for configured daemon framework. OsName=" + target.getOsName() + " OsFamily=" + target.getOsFamily());
+                }
             }
         }
         else
@@ -353,7 +375,7 @@ public class CreateImageCommand extends MojoCommand
                     }
                     else
                     {
-                        throw new MojoFailureException( "OsName='macosx' supports only OsArc='[ppc]'" );
+                        throw new MojoFailureException( "OsName='macosx' supports only OsArch='[ppc]'" );
                     }
                 }
                 else
