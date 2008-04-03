@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+# Emptying some directories
+rm -rf /var/lib/apacheds-${app.version}/default/partitions/*
+rm -rf /var/lib/apacheds-${app.version}/default/log/*
+rm -rf /opt/apacheds-${app.version}/bin/wrapper.log

@@ -178,6 +178,9 @@ public class DebInstallerCommand extends MojoCommand
 
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "postinst" ),
                 new File( debDebianDirectory, "postinst" ), true );
+
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "prerm" ),
+                new File( debDebianDirectory, "prerm" ), true );
         }
         catch ( IOException e )
         {
@@ -188,6 +191,8 @@ public class DebInstallerCommand extends MojoCommand
         // Setting correct permission on the postinst script
         MojoHelperUtils.exec( new String[]
             { "chmod", "755", new File( debDebianDirectory, "postinst" ).toString() }, debDebianDirectory, false );
+        MojoHelperUtils.exec( new String[]
+            { "chmod", "755", new File( debDebianDirectory, "prerm" ).toString() }, debDebianDirectory, false );
 
         // Generating the DEB
         log.info( "Generating Debian DEB Package" );
