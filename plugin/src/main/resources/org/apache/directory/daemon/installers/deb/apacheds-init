@@ -411,6 +411,7 @@ testpiddir()
 	then
 		# If it doesn't exist, we create it
    		mkdir -p $PIDDIR
+   		chown apacheds:apacheds $PIDDIR
 	fi
 }
 
@@ -429,7 +430,6 @@ usage() {
 
 console() {
     echo "Running $APP_LONG_NAME..."
-    testpiddir
     getpid
     if [ "X$pid" = "X" ]
     then
@@ -444,7 +444,6 @@ console() {
  
 start() {
     echo "Starting $APP_LONG_NAME..."
-    testpiddir
     getpid
      if [ "X$pid" = "X" ]
      then
@@ -563,11 +562,13 @@ list() {
 case "$1" in
 
     'console')
+    	testpiddir
         checkUser touchlock $1 $INSTANCE
         console
         ;;
 
     'start')
+    	testpiddir
         checkUser touchlock $1 $INSTANCE
         start
         ;;
