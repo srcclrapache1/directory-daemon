@@ -404,6 +404,16 @@ testpid() {
     fi
 }
 
+testpiddir()
+{
+	# Be sure that the PIDDIR exists
+    if [ ! -d $PIDDIR ]
+	then
+		# If it doesn't exist, we create it
+   		mkdir -p $PIDDIR
+	fi
+}
+
 usage() {
     echo "Usage: $0 <command>"
     echo "  Available Commands: "
@@ -419,6 +429,7 @@ usage() {
 
 console() {
     echo "Running $APP_LONG_NAME..."
+    testpiddir
     getpid
     if [ "X$pid" = "X" ]
     then
@@ -433,6 +444,7 @@ console() {
  
 start() {
     echo "Starting $APP_LONG_NAME..."
+    testpiddir
     getpid
      if [ "X$pid" = "X" ]
      then
