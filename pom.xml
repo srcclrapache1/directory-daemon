@@ -115,7 +115,7 @@
 
   <scm>
     <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</connection>
-    <developerConnection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</developerConnection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</developerConnection>
     <url>http://svn.apache.org/viewvc/directory/project/releases/8/daemon-parent</url>
   </scm>
 
