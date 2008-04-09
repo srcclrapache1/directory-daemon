@@ -31,7 +31,7 @@
   <name>Apache Directory Daemon</name>
   <packaging>pom</packaging>
   <!-- note that this skipped a RC in being bumped up -->
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.2</version>
   <description>
     Reusable framework for daemon applications based on Commons Daemon
     Jsvc and Procrun. A small installation layout pattern combined with
@@ -114,9 +114,9 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</connection>
-    <developerConnection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</developerConnection>
-    <url>http://svn.apache.org/viewvc/directory/project/releases/8/daemon-parent</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/tags/1.1.2</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/tags/1.1.2</developerConnection>
+    <url>http://svn.apache.org/viewvc/directory/project/releases/8/daemon-parent/tags/1.1.2</url>
   </scm>
 
   <distributionManagement>
