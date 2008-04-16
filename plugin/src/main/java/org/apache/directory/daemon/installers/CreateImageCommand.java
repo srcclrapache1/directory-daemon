@@ -49,8 +49,8 @@ public class CreateImageCommand extends MojoCommand
         this.target = target;
         initializeFiltering();
     }
-    
-    
+
+
     public Properties getFilterProperties()
     {
         return filterProperties;
@@ -118,8 +118,8 @@ public class CreateImageCommand extends MojoCommand
         {
             try
             {
-                MojoHelperUtils.copyAsciiFile( mymojo, filterProperties,
-                    getClass().getResourceAsStream( "LICENSE" ), licenseTarget, false );
+                MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "LICENSE" ),
+                    licenseTarget, false );
             }
             catch ( IOException e )
             {
@@ -167,17 +167,17 @@ public class CreateImageCommand extends MojoCommand
         }
 
         // copy over the REQUIRED logger artifact
-/*
-        try
-        {
-            FileUtils.copyFile( mymojo.getLogger().getFile(), layout.getLogger() );
-        }
-        catch ( IOException e )
-        {
-            throw new MojoFailureException( "Failed to copy logger.jar " + mymojo.getLogger().getFile()
-                + " into position " + layout.getLogger() );
-        }
-*/
+        /*
+                try
+                {
+                    FileUtils.copyFile( mymojo.getLogger().getFile(), layout.getLogger() );
+                }
+                catch ( IOException e )
+                {
+                    throw new MojoFailureException( "Failed to copy logger.jar " + mymojo.getLogger().getFile()
+                        + " into position " + layout.getLogger() );
+                }
+        */
 
         // copy over the REQUIRED daemon.jar file 
         try
@@ -216,7 +216,7 @@ public class CreateImageCommand extends MojoCommand
             catch ( IOException e )
             {
                 log.error( "Failed to copy logger configuration file " + target.getLoggerConfigurationFile()
-                        + " into position " + layout.getLoggerConfigurationFile(), e );
+                    + " into position " + layout.getLoggerConfigurationFile(), e );
             }
         }
 
@@ -230,7 +230,7 @@ public class CreateImageCommand extends MojoCommand
             catch ( IOException e )
             {
                 log.error( "Failed to copy server configuration file " + target.getServerConfigurationFile()
-                        + " into position " + layout.getConfigurationFile(), e );
+                    + " into position " + layout.getConfigurationFile(), e );
             }
         }
 
@@ -238,34 +238,53 @@ public class CreateImageCommand extends MojoCommand
         // Copy Wrapper Files
         // -------------------------------------------------------------------
 
-        if ( target.getOsName().equals( "linux" ) && target.getOsArch().equals( "i386" ) && target.getDaemonFramework().equals("tanuki"))
+        if ( target.getOsName().equals( "linux" ) && target.getOsArch().equals( "i386" )
+            && target.getDaemonFramework().equals( "tanuki" ) )
         {
             try
             {
                 MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream( "wrapper/bin/wrapper-linux-x86-32" ),
-                        new File( layout.getBinDirectory(), target.getApplication().getName() ) );
-                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream( "wrapper/lib/libwrapper-linux-x86-32.so" ),
-                        new File( layout.getLibDirectory(), "libwrapper.so" ) );
+                    new File( layout.getBinDirectory(), target.getApplication().getName() ) );
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/lib/libwrapper-linux-x86-32.so" ), new File( layout.getLibDirectory(), "libwrapper.so" ) );
             }
             catch ( IOException e )
             {
-                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories");
+                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories" );
             }
         }
 
-
-        if ( target.getOsName().equals( "linux" ) && target.getOsArch().equals( "x86_64" ) && target.getDaemonFramework().equals("tanuki"))
+        if ( target.getOsName().equals( "linux" )
+            && ( target.getOsArch().equals( "x86_64" ) || target.getOsArch().equals( "amd64" ) )
+            && target.getDaemonFramework().equals( "tanuki" ) )
         {
             try
             {
                 MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream( "wrapper/bin/wrapper-linux-x86-64" ),
-                        new File( layout.getBinDirectory(), target.getApplication().getName() ) );
-                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream( "wrapper/lib/libwrapper-linux-x86-64.so" ),
-                        new File( layout.getLibDirectory(), "libwrapper.so" ) );
+                    new File( layout.getBinDirectory(), target.getApplication().getName() ) );
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/lib/libwrapper-linux-x86-64.so" ), new File( layout.getLibDirectory(), "libwrapper.so" ) );
             }
             catch ( IOException e )
             {
-                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories");
+                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories" );
+            }
+        }
+
+        if ( target.getOsName().equalsIgnoreCase( "mac os x" ) && target.getDaemonFramework().equals( "tanuki" ) )
+        {
+            try
+            {
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/bin/wrapper-macosx-universal-32" ), new File( layout.getBinDirectory(), target
+                    .getApplication().getName() ) );
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/lib/libwrapper-macosx-universal-32.jnilib" ), new File( layout.getLibDirectory(),
+                    "libwrapper.jnilib" ) );
+            }
+            catch ( IOException e )
+            {
+                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories" );
             }
         }
 
@@ -299,19 +318,19 @@ public class CreateImageCommand extends MojoCommand
         }
 
         // now copy over the jsvc executable renaming it to the mymojo.getApplicationName() 
-        if ( target.getOsName().equals( "macosx" ) && target.getOsArch().equals( "ppc" ) )
-        {
-            File executable = new File( layout.getBinDirectory(), target.getApplication().getName() );
-            try
-            {
-                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream( "jsvc_macosx_ppc" ), executable );
-            }
-            catch ( IOException e )
-            {
-                throw new MojoFailureException( "Failed to copy jsvc executable file "
-                    + getClass().getResource( "jsvc_macosx_ppc" ) + " into position " + executable.getAbsolutePath() );
-            }
-        }
+        //        if ( target.getOsName().equals( "macosx" ) && target.getOsArch().equals( "ppc" ) )
+        //        {
+        //            File executable = new File( layout.getBinDirectory(), target.getApplication().getName() );
+        //            try
+        //            {
+        //                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream( "jsvc_macosx_ppc" ), executable );
+        //            }
+        //            catch ( IOException e )
+        //            {
+        //                throw new MojoFailureException( "Failed to copy jsvc executable file "
+        //                    + getClass().getResource( "jsvc_macosx_ppc" ) + " into position " + executable.getAbsolutePath() );
+        //            }
+        //        }
 
         target.setLibArtifacts( MojoHelperUtils.copyDependencies( mymojo, layout ) );
 
@@ -360,10 +379,10 @@ public class CreateImageCommand extends MojoCommand
             catch ( IOException e )
             {
                 log.error( "Failed to notice file " + noticeFile.getAbsolutePath() + " into position "
-                        + noticeFileTarget.getAbsolutePath(), e );
+                    + noticeFileTarget.getAbsolutePath(), e );
             }
         }
-        
+
         processPackagedFiles( target, mymojo.getPackagedFiles() );
     }
 }

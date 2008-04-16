@@ -112,7 +112,7 @@ public class RpmInstallerCommand extends MojoCommand
 
         if ( target.getRpmTopDir() == null )
         {
-            target.setRpmTopDir( new File( System.getProperty( "user.home" ) + "/rpmbuild" ) );
+            target.setRpmTopDir( new File( "target/rpmbuild" ) );
         }
 
         if ( !target.getRpmTopDir().exists() )
@@ -138,7 +138,10 @@ public class RpmInstallerCommand extends MojoCommand
         // because the compiler may be installed in different places and is specific
         if ( !target.getRpmBuilder().exists() )
         {
-            throw new MojoFailureException( "Cannot find rpmbuild: " + target.getRpmBuilder() );
+            log.warn( "Cannot find rpmbuild utility at this location: " + target.getRpmBuilder() );
+            log.warn( "The build will continue, but please check the location of your rpmbuild " );
+            log.warn( "utility." );
+            return;
         }
         else
         {
@@ -233,8 +236,8 @@ public class RpmInstallerCommand extends MojoCommand
         String[] cmd = new String[]
             { rpmBuilder.getAbsolutePath(), "-ba", "--define", "_topdir " + target.getRpmTopDir().getAbsolutePath(), rpmConfigurationFile.getAbsolutePath() };
         MojoHelperUtils.exec( cmd, target.getLayout().getBaseDirectory().getParentFile(), target.isDoSudo() );
-        String rpmName = target.getApplication().getName() + "-" + version + "-0." + System.getProperty("os.arch") + ".rpm";
-        File srcFile = new File( System.getProperty("user.home") + "/rpmbuild/RPMS/" + System.getProperty("os.arch"), rpmName );
+        String rpmName = target.getApplication().getName() + "-" + version + "-0." + target.getOsArch() + ".rpm";
+        File srcFile = new File( target.getRpmTopDir(), "RPMS/" + target.getOsArch() + "/" + rpmName );
         File dstFile = null;
 
         if ( target.getFinalName() == null )
@@ -630,7 +633,7 @@ public class RpmInstallerCommand extends MojoCommand
 
         String[] cmd = new String[]
             { "tar", "-zcvf",
-                System.getProperty("user.home") + "/rpmbuild/SOURCES/" + target.getApplication().getName() + "-" + version + ".tar.gz",
+            target.getRpmTopDir().getAbsolutePath() + "/SOURCES/" + target.getApplication().getName() + "-" + version + ".tar.gz",
                 sourcesDir.getAbsolutePath() };
 
         MojoHelperUtils.exec( cmd, target.getLayout().getBaseDirectory().getParentFile(), target.isDoSudo() );
