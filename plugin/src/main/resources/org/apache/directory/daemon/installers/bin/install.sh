@@ -31,7 +31,7 @@ echo "Installing..."
 # Copying the server files
 mkdir -p $APACHEDS_HOME_DIRECTORY
 verifyExitCode
-cp -r ../root/server/* $APACHEDS_HOME_DIRECTORY
+cp -r ../rootFolder/server/* $APACHEDS_HOME_DIRECTORY
 verifyExitCode
 
 # Creating instances home directory
@@ -59,27 +59,27 @@ mkdir -p /var/run/apacheds-$APACHEDS_VERSION
 verifyExitCode
 
 # Copying the default instance files
-cp ../root/instance/apacheds.conf $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
+cp ../rootFolder/instance/apacheds.conf $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
 verifyExitCode
-cp ../root/instance/log4j.properties $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
+cp ../rootFolder/instance/log4j.properties $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
 verifyExitCode
-cp ../root/instance/server.xml $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
+cp ../rootFolder/instance/server.xml $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
 verifyExitCode
 
 # Filtering and copying the init.d script
-sed -e "s;@APACHEDS.HOME@;${APACHEDS_HOME_DIRECTORY};" ../root/instance/apacheds-init > ../root/instance/apacheds-init.tmp
+sed -e "s;@APACHEDS.HOME@;${APACHEDS_HOME_DIRECTORY};" ../rootFolder/instance/apacheds-init > ../rootFolder/instance/apacheds-init.tmp
 verifyExitCode
-mv ../root/instance/apacheds-init.tmp ../root/instance/apacheds-init
+mv ../rootFolder/instance/apacheds-init.tmp ../rootFolder/instance/apacheds-init
 verifyExitCode
-sed -e "s;@INSTANCE.HOME@;${INSTANCES_HOME_DIRECTORY};" ../root/instance/apacheds-init > ../root/instance/apacheds-init.tmp
+sed -e "s;@INSTANCE.HOME@;${INSTANCES_HOME_DIRECTORY};" ../rootFolder/instance/apacheds-init > ../rootFolder/instance/apacheds-init.tmp
 verifyExitCode
-mv ../root/instance/apacheds-init.tmp ../root/instance/apacheds-init
+mv ../rootFolder/instance/apacheds-init.tmp ../rootFolder/instance/apacheds-init
 verifyExitCode
-sed -e "s;@INSTANCE@;${DEFAULT_INSTANCE_NAME};" ../root/instance/apacheds-init > ../root/instance/apacheds-init.tmp
+sed -e "s;@INSTANCE@;${DEFAULT_INSTANCE_NAME};" ../rootFolder/instance/apacheds-init > ../rootFolder/instance/apacheds-init.tmp
 verifyExitCode
-mv ../root/instance/apacheds-init.tmp ../root/instance/apacheds-init
+mv ../rootFolder/instance/apacheds-init.tmp ../rootFolder/instance/apacheds-init
 verifyExitCode
-cp ../root/instance/apacheds-init /etc/init.d/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
+cp ../rootFolder/instance/apacheds-init /etc/init.d/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
 verifyExitCode
 
 # Setting the correct permissions on executable files

@@ -109,24 +109,24 @@ public class BinInstallerCommand extends MojoCommand
 
         log.info( "Copying Bin installer files" );
 
-        // Copying the apacheds files in the root directory
-        File binRootDirectory = new File( binDirectory, "root" );
-        binRootDirectory.mkdirs();
-        File binRootServerDirectory = new File( binRootDirectory, "server" );
+        // Copying the apacheds files in the rootFolder directory
+        File binRootFolderDirectory = new File( binDirectory, "rootFolder" );
+        binRootFolderDirectory.mkdirs();
+        File binRootFolderServerDirectory = new File( binRootFolderDirectory, "server" );
         try
         {
-            copyFiles( baseDirectory, binRootServerDirectory );
+            copyFiles( baseDirectory, binRootFolderServerDirectory );
         }
         catch ( IOException e )
         {
             log.error( e.getMessage() );
             throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getBaseDirectory()
-                + ") to the Bin directory (" + binRootDirectory + ")" );
+                + ") to the Bin directory (" + binRootFolderDirectory + ")" );
         }
 
         // Create instance and sh directory
-        File binRootInstanceDirectory = new File( binRootDirectory, "instance" );
-        binRootInstanceDirectory.mkdirs();
+        File binRootFolderInstanceDirectory = new File( binRootFolderDirectory, "instance" );
+        binRootFolderInstanceDirectory.mkdirs();
         File binShDirectory = new File( binDirectory, "sh" );
         binShDirectory.mkdirs();
 
@@ -135,23 +135,23 @@ public class BinInstallerCommand extends MojoCommand
         {
             // Copying the apacheds.conf file to the server installation layout
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds.conf" ),
-                new File( binRootServerDirectory, "conf/apacheds.conf" ), false );
+                new File( binRootFolderServerDirectory, "conf/apacheds.conf" ), false );
 
             // Copying the default instance apacheds.conf file
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream(
-                "apacheds-default.conf" ), new File( binRootInstanceDirectory, "apacheds.conf" ), false );
+                "apacheds-default.conf" ), new File( binRootFolderInstanceDirectory, "apacheds.conf" ), false );
 
             // Copying the log4j.properties file for the default instance
-            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, new File( binRootServerDirectory,
-                "conf/log4j.properties" ), new File( binRootInstanceDirectory, "log4j.properties" ), false );
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, new File( binRootFolderServerDirectory,
+                "conf/log4j.properties" ), new File( binRootFolderInstanceDirectory, "log4j.properties" ), false );
 
             // Copying the server.xml file for the default instance
-            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, new File( binRootServerDirectory,
-                "conf/server.xml" ), new File( binRootInstanceDirectory, "server.xml" ), false );
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, new File( binRootFolderServerDirectory,
+                "conf/server.xml" ), new File( binRootFolderInstanceDirectory, "server.xml" ), false );
 
             // Copying the apacheds-init script file for the default instance
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds-init" ),
-                new File( binRootInstanceDirectory, "apacheds-init" ), true );
+                new File( binRootFolderInstanceDirectory, "apacheds-init" ), true );
 
             // Copying shell script utilities for the installer
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "bootstrap.sh" ),
