@@ -1,5 +1,20 @@
 #!/bin/sh
 
+#------------------------------------------------------------------------------
+# Verifies the exit code of the last command used. If the exit code is 0, the
+# execution continues, if not the execution is halted and we exit the program
+# with a 1 value.
+#------------------------------------------------------------------------------
+verifyExitCode()
+{
+    if [ $? -ne 0 ]
+    then
+               echo "An error occurred when installing Apache DS."
+               echo "Apache DS installation failed."
+               exit 1
+    fi
+}
+
 # Variables
 export APACHEDS_VERSION=${apacheds.version}
 
@@ -217,20 +232,28 @@ archiveName=__tmp.tar.gz
 echo "Unpacking the installer..."
 trap 'rm -f $archiveName; exit 1' HUP INT QUIT TERM
 tail -n +@LINES@ $0 > $archiveName
+verifyExitCode
 
 # Extracting the installer
 echo "Extracting the installer..."
 tar xzf $archiveName
+verifyExitCode
 
 # Launching the installer
 cd sh
+verifyExitCode
 . ./install.sh
+verifyExitCode
 
 # Cleaning
 cd ..
+verifyExitCode
 rm -rf sh
-rm -rd root
+verifyExitCode
+rm -rd rootFolder
+verifyExitCode
 rm -f $archiveName
+verifyExitCode
 
 # Finishing
 echo "Done."
