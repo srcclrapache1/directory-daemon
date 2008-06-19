@@ -6,7 +6,7 @@ lines=`expr $lines + 1`
 sed -e "s/@LINES@/${lines}/" bootstrap.sh > ../${finalName}
 
 # Packing the data and shell scripts
-tar czf ${tmpArchive} root/* sh/*
+tar czf ${tmpArchive} rootFolder/* sh/*
 
 # Adding the temp archive to the installer
 cat ${tmpArchive} >> ../${finalName}
