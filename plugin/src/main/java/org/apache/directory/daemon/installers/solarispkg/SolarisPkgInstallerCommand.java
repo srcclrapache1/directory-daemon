@@ -197,8 +197,8 @@ public class SolarisPkgInstallerCommand extends MojoCommand
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "postinstall" ),
                 new File( pkgDirectory, "postinstall" ), true );
 
-            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "prermove" ),
-                new File( pkgDirectory, "prermove" ), true );
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "preremove" ),
+                new File( pkgDirectory, "preremove" ), true );
         }
         catch ( IOException e )
         {
