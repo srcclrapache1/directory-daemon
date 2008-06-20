@@ -17,7 +17,7 @@
  *  under the License. 
  *  
  */
-package org.apache.directory.daemon.installers.pkg;
+package org.apache.directory.daemon.installers.macosxpkg;
 
 
 import java.io.File;
@@ -38,7 +38,7 @@ import org.apache.directory.daemon.installers.Target;
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
  * @version $Rev$, $Date$
  */
-public class PkgTarget extends Target
+public class MacOsXPkgTarget extends Target
 {
     /** The wrapper executable path */
     private String wrapperExecutablePath = "src/main/installers/wrapper/bin/wrapper-windows-x86-32.exe";
