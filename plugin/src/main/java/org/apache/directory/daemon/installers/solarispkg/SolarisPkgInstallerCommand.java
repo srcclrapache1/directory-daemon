@@ -243,6 +243,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
     private void initializeFiltering()
     {
         filterProperties.putAll( mymojo.getProject().getProperties() );
+        filterProperties.put( "app", target.getApplication().getName() );
         filterProperties.put( "app.name", target.getApplication().getName() );
         if ( target.getApplication().getVersion() != null )
         {
