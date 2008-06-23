@@ -227,7 +227,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
 
             // Packaging it as a single file
             executeTask.setCommandline( new String[]
-                { pkgTranslator.getAbsolutePath(), "-s", "target", "../" + finalName, "apacheds" } );
+                { pkgTranslator.getAbsolutePath(), "-s", "target", "../../" + finalName, "apacheds" } );
             executeTask.execute();
         }
         catch ( IOException e )
