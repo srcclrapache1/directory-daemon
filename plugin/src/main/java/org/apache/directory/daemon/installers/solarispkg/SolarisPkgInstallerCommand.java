@@ -188,11 +188,11 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         // Copying the 'pkg' files 
         try
         {
-            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds" ),
-                new File( pkgDirectory, "apacheds" ), true );
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "Prototype" ),
+                new File( pkgDirectory, "Prototype" ), true );
             
-            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds" ),
-                new File( pkgDirectory, "apacheds" ), true );
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "pkginfo" ),
+                new File( pkgDirectory, "pkginfo" ), true );
 
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "postinstall" ),
                 new File( pkgDirectory, "postinstall" ), true );

@@ -65,7 +65,6 @@ d /opt/apacheds-${version}/var
 d /opt/apacheds-${version}/var/log
 d /opt/apacheds-${version}/var/partitions
 d /opt/apacheds-${version}/var/run
-
 d /var/lib/apacheds-${version}
 d /var/lib/apacheds-${version}/default
 d /var/lib/apacheds-${version}/default/conf
@@ -76,5 +75,4 @@ d /var/lib/apacheds-${version}/default/ldif
 d /var/lib/apacheds-${version}/default/log
 d /var/lib/apacheds-${version}/default/partitions
 d /var/lib/apacheds-${version}/default/run
-
 f /etc/init.d/apacheds-${version}-default
