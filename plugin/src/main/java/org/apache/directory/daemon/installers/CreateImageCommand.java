@@ -238,6 +238,7 @@ public class CreateImageCommand extends MojoCommand
         // Copy Wrapper Files
         // -------------------------------------------------------------------
 
+        // LINUX I386
         if ( target.getOsName().equals( "linux" ) && target.getOsArch().equals( "i386" )
             && target.getDaemonFramework().equals( "tanuki" ) )
         {
@@ -254,6 +255,7 @@ public class CreateImageCommand extends MojoCommand
             }
         }
 
+        // LINUX X86_64 (AMD64)
         if ( target.getOsName().equals( "linux" )
             && ( target.getOsArch().equals( "x86_64" ) || target.getOsArch().equals( "amd64" ) )
             && target.getDaemonFramework().equals( "tanuki" ) )
@@ -271,6 +273,7 @@ public class CreateImageCommand extends MojoCommand
             }
         }
 
+        // MAC OS X
         if ( target.getOsName().equalsIgnoreCase( "mac os x" ) && target.getDaemonFramework().equals( "tanuki" ) )
         {
             try
@@ -281,6 +284,44 @@ public class CreateImageCommand extends MojoCommand
                 MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
                     "wrapper/lib/libwrapper-macosx-universal-32.jnilib" ), new File( layout.getLibDirectory(),
                     "libwrapper.jnilib" ) );
+            }
+            catch ( IOException e )
+            {
+                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories" );
+            }
+        }
+
+        // SOLARIS X86
+        if ( target.getOsName().equalsIgnoreCase( "solaris" ) && target.getOsArch().equals( "x86" )
+            && target.getDaemonFramework().equals( "tanuki" ) )
+        {
+            try
+            {
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/bin/wrapper-solaris-x86-32" ), new File( layout.getBinDirectory(), target
+                    .getApplication().getName() ) );
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/lib/libwrapper-solaris-x86-32.so" ), new File( layout.getLibDirectory(),
+                    "libwrapper.so" ) );
+            }
+            catch ( IOException e )
+            {
+                throw new MojoFailureException( "Failed to copy Tanuki binary files to lib and bin directories" );
+            }
+        }
+
+        // SOLARIS SPARC
+        if ( target.getOsName().equalsIgnoreCase( "solaris" ) && target.getOsArch().equals( "sparc" )
+            && target.getDaemonFramework().equals( "tanuki" ) )
+        {
+            try
+            {
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/bin/wrapper-solaris-sparc-32" ), new File( layout.getBinDirectory(), target
+                    .getApplication().getName() ) );
+                MojoHelperUtils.copyBinaryFile( getClass().getResourceAsStream(
+                    "wrapper/lib/libwrapper-solaris-sparc-32.so" ), new File( layout.getLibDirectory(),
+                    "libwrapper.so" ) );
             }
             catch ( IOException e )
             {
