@@ -146,17 +146,17 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         }
 
         // Copying the instances in the '/var/lib/apacheds-$VERSION/default' directory
-        File debDefaultInstanceDirectory = new File( pkgRootDirectory, "var/lib/apacheds-"
+        File defaultInstanceDirectory = new File( pkgRootDirectory, "var/lib/apacheds-"
             + target.getApplication().getVersion() + "/default" );
-        debDefaultInstanceDirectory.mkdirs();
-        File debDefaultInstanceConfDirectory = new File( debDefaultInstanceDirectory, "conf" );
+        defaultInstanceDirectory.mkdirs();
+        File debDefaultInstanceConfDirectory = new File( defaultInstanceDirectory, "conf" );
         debDefaultInstanceConfDirectory.mkdirs();
-        new File( debDefaultInstanceDirectory, "ldif" ).mkdirs();
-        new File( debDefaultInstanceDirectory, "log" ).mkdirs();
-        new File( debDefaultInstanceDirectory, "partitions" ).mkdirs();
-        new File( debDefaultInstanceDirectory, "run" ).mkdirs();
-        File debEtcInitdDirectory = new File( pkgRootDirectory, "etc/init.d" );
-        debEtcInitdDirectory.mkdirs();
+        new File( defaultInstanceDirectory, "ldif" ).mkdirs();
+        new File( defaultInstanceDirectory, "log" ).mkdirs();
+        new File( defaultInstanceDirectory, "partitions" ).mkdirs();
+        new File( defaultInstanceDirectory, "run" ).mkdirs();
+        File etcInitdDirectory = new File( pkgRootDirectory, "etc/init.d" );
+        etcInitdDirectory.mkdirs();
         new File( pkgRootDirectory, "/var/run/apacheds-" + target.getApplication().getVersion() ).mkdirs();
         try
         {
@@ -174,15 +174,14 @@ public class SolarisPkgInstallerCommand extends MojoCommand
                     "server.xml" ), false );
 
             // Copying the init script in /etc/init.d/
-            MojoHelperUtils
-                .copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds-init" ), new File(
-                    debEtcInitdDirectory, "apacheds-" + target.getApplication().getVersion() + "-default" ), true );
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds-init" ),
+                new File( etcInitdDirectory, "apacheds-" + target.getApplication().getVersion() + "-default" ), true );
         }
         catch ( IOException e )
         {
             log.error( e.getMessage() );
             throw new MojoFailureException( "Failed to copy resources files to the PKG directory ("
-                + debDefaultInstanceDirectory + ")" );
+                + defaultInstanceDirectory + ")" );
         }
 
         // Copying the 'pkg' files 
@@ -190,7 +189,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         {
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "Prototype" ),
                 new File( pkgDirectory, "Prototype" ), true );
-            
+
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "pkginfo" ),
                 new File( pkgDirectory, "pkginfo" ), true );
 
@@ -206,7 +205,10 @@ public class SolarisPkgInstallerCommand extends MojoCommand
             throw new MojoFailureException( "Failed to copy DEB 'control' file." );
         }
 
-        // Generating the DMG
+        // Creating the target folder
+        new File( pkgRootDirectory, "target" ).mkdir();
+
+        // Generating the PKG
         log.info( "Generating Solaris PKG Installer" );
         String finalName = target.getFinalName();
         if ( !finalName.endsWith( ".pkg" ) )
