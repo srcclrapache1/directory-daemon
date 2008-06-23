@@ -1,78 +1,78 @@
 i pkginfo
 d none /opt/apacheds-${version} 0755 root root
-d /opt/apacheds-${version}/bin
-f /opt/apacheds-${version}/bin/apacheds-tools.jar
-f /opt/apacheds-${version}/bin/apacheds
-d /opt/apacheds-${version}/conf
-f /opt/apacheds-${version}/conf/server.xml
-f /opt/apacheds-${version}/conf/apacheds.conf
-f /opt/apacheds-${version}/conf/log4j.properties
-f /opt/apacheds-${version}/feather.ico
-d /opt/apacheds-${version}/lib
-f /opt/apacheds-${version}/lib/xbean-spring-3.3.jar
-f /opt/apacheds-${version}/lib/antlr-2.7.7.jar
-f /opt/apacheds-${version}/lib/apacheds-bootstrap-extract-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-bootstrap-partition-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-btree-base-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-core-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-core-constants-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-core-entry-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-core-shared-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-jdbm-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-jdbm-store-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-kerberos-shared-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-noarch-installer-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-changepw-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-dhcp-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-dns-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-kerberos-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-ldap-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-ntp-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-protocol-shared-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-schema-bootstrap-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-schema-extras-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-schema-registries-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-server-jndi-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-server-xml-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-utils-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/apacheds-xbean-spring-1.5.3-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/bootstrapper.jar
-f /opt/apacheds-${version}/lib/commons-cli-1.1.jar
-f /opt/apacheds-${version}/lib/commons-collections-3.2.jar
-f /opt/apacheds-${version}/lib/commons-daemon-1.0.1.jar
-f /opt/apacheds-${version}/lib/commons-lang-2.3.jar
-d /opt/apacheds-${version}/lib/ext
-f /opt/apacheds-${version}/lib/jcl104-over-slf4j-1.4.3.jar
-f /opt/apacheds-${version}/lib/libwrapper.so
-f /opt/apacheds-${version}/lib/log4j-1.2.14.jar
-f /opt/apacheds-${version}/lib/mina-core-1.1.6.jar
-f /opt/apacheds-${version}/lib/mina-filter-ssl-1.1.6.jar
-f /opt/apacheds-${version}/lib/shared-asn1-0.9.11-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/shared-asn1-codec-0.9.11-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/shared-bouncycastle-reduced-0.9.11-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/shared-ldap-0.9.11-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/shared-ldap-constants-0.9.11-SNAPSHOT.jar
-f /opt/apacheds-${version}/lib/slf4j-api-1.4.3.jar
-f /opt/apacheds-${version}/lib/slf4j-log4j12-1.4.3.jar
-f /opt/apacheds-${version}/lib/spring-beans-2.0.6.jar
-f /opt/apacheds-${version}/lib/spring-context-2.0.6.jar
-f /opt/apacheds-${version}/lib/spring-core-2.0.6.jar
-f /opt/apacheds-${version}/lib/wrapper.jar
-f /opt/apacheds-${version}/LICENSE
-f /opt/apacheds-${version}/NOTICE
-f /opt/apacheds-${version}/README
-d /opt/apacheds-${version}/var
-d /opt/apacheds-${version}/var/log
-d /opt/apacheds-${version}/var/partitions
-d /opt/apacheds-${version}/var/run
-d /var/lib/apacheds-${version}
-d /var/lib/apacheds-${version}/default
-d /var/lib/apacheds-${version}/default/conf
-f /var/lib/apacheds-${version}/default/conf/apacheds.conf
-f /var/lib/apacheds-${version}/default/conf/log4j.properties
-f /var/lib/apacheds-${version}/default/conf/server.xml
-d /var/lib/apacheds-${version}/default/ldif
-d /var/lib/apacheds-${version}/default/log
-d /var/lib/apacheds-${version}/default/partitions
-d /var/lib/apacheds-${version}/default/run
-f /etc/init.d/apacheds-${version}-default
+d none /opt/apacheds-${version}/bin 0755 root root
+f none /opt/apacheds-${version}/bin/apacheds-tools.jar 0755 root root
+f none /opt/apacheds-${version}/bin/apacheds 0755 root root
+d none /opt/apacheds-${version}/conf 0755 root root
+f none /opt/apacheds-${version}/conf/server.xml 0755 root root
+f none /opt/apacheds-${version}/conf/apacheds.conf 0755 root root
+f none /opt/apacheds-${version}/conf/log4j.properties 0755 root root
+f none /opt/apacheds-${version}/feather.ico 0755 root root
+d none /opt/apacheds-${version}/lib 0755 root root
+f none /opt/apacheds-${version}/lib/xbean-spring-3.3.jar 0755 root root
+f none /opt/apacheds-${version}/lib/antlr-2.7.7.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-bootstrap-extract-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-bootstrap-partition-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-btree-base-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-core-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-core-constants-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-core-entry-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-core-shared-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-jdbm-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-jdbm-store-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-kerberos-shared-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-noarch-installer-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-changepw-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-dhcp-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-dns-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-kerberos-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-ldap-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-ntp-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-protocol-shared-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-schema-bootstrap-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-schema-extras-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-schema-registries-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-server-jndi-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-server-xml-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-utils-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/apacheds-xbean-spring-1.5.3-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/bootstrapper.jar 0755 root root
+f none /opt/apacheds-${version}/lib/commons-cli-1.1.jar 0755 root root
+f none /opt/apacheds-${version}/lib/commons-collections-3.2.jar 0755 root root
+f none /opt/apacheds-${version}/lib/commons-daemon-1.0.1.jar 0755 root root
+f none /opt/apacheds-${version}/lib/commons-lang-2.3.jar 0755 root root
+d none /opt/apacheds-${version}/lib/ext 0755 root root
+f none /opt/apacheds-${version}/lib/jcl104-over-slf4j-1.4.3.jar 0755 root root
+f none /opt/apacheds-${version}/lib/libwrapper.so 0755 root root
+f none /opt/apacheds-${version}/lib/log4j-1.2.14.jar 0755 root root
+f none /opt/apacheds-${version}/lib/mina-core-1.1.6.jar 0755 root root
+f none /opt/apacheds-${version}/lib/mina-filter-ssl-1.1.6.jar 0755 root root
+f none /opt/apacheds-${version}/lib/shared-asn1-0.9.11-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/shared-asn1-codec-0.9.11-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/shared-bouncycastle-reduced-0.9.11-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/shared-ldap-0.9.11-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/shared-ldap-constants-0.9.11-SNAPSHOT.jar 0755 root root
+f none /opt/apacheds-${version}/lib/slf4j-api-1.4.3.jar 0755 root root
+f none /opt/apacheds-${version}/lib/slf4j-log4j12-1.4.3.jar 0755 root root
+f none /opt/apacheds-${version}/lib/spring-beans-2.0.6.jar 0755 root root
+f none /opt/apacheds-${version}/lib/spring-context-2.0.6.jar 0755 root root
+f none /opt/apacheds-${version}/lib/spring-core-2.0.6.jar 0755 root root
+f none /opt/apacheds-${version}/lib/wrapper.jar 0755 root root
+f none /opt/apacheds-${version}/LICENSE 0755 root root
+f none /opt/apacheds-${version}/NOTICE 0755 root root
+f none /opt/apacheds-${version}/README 0755 root root
+d none /opt/apacheds-${version}/var 0755 root root
+d none /opt/apacheds-${version}/var/log 0755 root root
+d none /opt/apacheds-${version}/var/partitions 0755 root root
+d none /opt/apacheds-${version}/var/run 0755 root root
+d none /var/lib/apacheds-${version} 0755 root root
+d none /var/lib/apacheds-${version}/default 0755 root root
+d none /var/lib/apacheds-${version}/default/conf 0755 root root
+f none /var/lib/apacheds-${version}/default/conf/apacheds.conf 0755 root root
+f none /var/lib/apacheds-${version}/default/conf/log4j.properties 0755 root root
+f none /var/lib/apacheds-${version}/default/conf/server.xml 0755 root root
+d none /var/lib/apacheds-${version}/default/ldif 0755 root root
+d none /var/lib/apacheds-${version}/default/log 0755 root root
+d none /var/lib/apacheds-${version}/default/partitions 0755 root root
+d none /var/lib/apacheds-${version}/default/run 0755 root root
+f none /etc/init.d/apacheds-${version}-default 0755 root root
