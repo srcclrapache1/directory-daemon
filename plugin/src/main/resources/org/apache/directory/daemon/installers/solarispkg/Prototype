@@ -1,6 +1,7 @@
 i pkginfo
 i postinstall
 i preremove
+i postremove
 d none /opt/apacheds-${version} 0755 root root
 d none /opt/apacheds-${version}/bin 0755 root root
 f none /opt/apacheds-${version}/bin/apacheds-tools.jar 0755 root root

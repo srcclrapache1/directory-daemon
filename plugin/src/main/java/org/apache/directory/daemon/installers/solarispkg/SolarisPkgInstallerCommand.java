@@ -198,11 +198,14 @@ public class SolarisPkgInstallerCommand extends MojoCommand
 
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "preremove" ),
                 new File( pkgDirectory, "preremove" ), true );
+
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "postremove" ),
+                new File( pkgDirectory, "postremove" ), true );
         }
         catch ( IOException e )
         {
             log.error( e.getMessage() );
-            throw new MojoFailureException( "Failed to copy DEB 'control' file." );
+            throw new MojoFailureException( "Failed to copy PKG 'control' file." );
         }
 
         // Creating the target folder
