@@ -20,7 +20,8 @@ chown apacheds:apacheds /var/run/apacheds-${app.version}
 chown root:root /etc/init.d/apacheds-${app.version}-default
 
 # Create symbolic links for runlevels for default instance
-#update-rc.d apacheds-${app.version}-default defaults # TODO We have to find how to do it on Solaris.
+ln -s /etc/init.d/apacheds-${app.version}-default /etc/rc0.d/K99apacheds-${app.version}-default
+ln -s /etc/init.d/apacheds-${app.version}-default /etc/rc3.d/S99apacheds-${app.version}-default
 
 # Start the default instance 
 /etc/init.d/apacheds-${app.version}-default start
