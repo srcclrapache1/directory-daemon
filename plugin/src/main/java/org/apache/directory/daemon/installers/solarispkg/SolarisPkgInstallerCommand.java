@@ -78,7 +78,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
     public void execute() throws MojoExecutionException, MojoFailureException
     {
         // Verifying the target is macosx
-        if ( !target.getOsFamily().equals( "solaris" ) )
+        if ( !target.getOsName().equals( "solaris" ) )
         {
             log.warn( "Solaris PKG installer can only be targeted for Solaris platform!" );
             log.warn( "The build will continue, but please check the the platform of this installer " );
