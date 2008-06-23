@@ -206,7 +206,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         }
 
         // Creating the target folder
-        new File( pkgRootDirectory, "target" ).mkdir();
+        new File( pkgDirectory, "target" ).mkdir();
 
         // Generating the PKG
         log.info( "Generating Solaris PKG Installer" );
