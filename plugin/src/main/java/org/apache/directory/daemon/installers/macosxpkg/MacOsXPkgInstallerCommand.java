@@ -179,6 +179,8 @@ public class MacOsXPkgInstallerCommand extends MojoCommand
                 "org.apache.directory.server.plist" ), new File( pkgRootLibraryLaunchDaemons,
                 "org.apache.directory.server.plist" ), true );
 
+            // Removing the redundant server.xml file (see DIRSERVER-1112)
+            new File( pkgRootUsrLocalApachedsDirectory, "conf/server.xml" ).delete();
         }
         catch ( IOException e )
         {

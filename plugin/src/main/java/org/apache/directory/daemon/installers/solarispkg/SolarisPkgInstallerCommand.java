@@ -176,6 +176,9 @@ public class SolarisPkgInstallerCommand extends MojoCommand
             // Copying the init script in /etc/init.d/
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds-init" ),
                 new File( etcInitdDirectory, "apacheds-" + target.getApplication().getVersion() + "-default" ), true );
+
+            // Removing the redundant server.xml file (see DIRSERVER-1112)
+            new File( apacheDsHomeDirectory, "conf/server.xml" ).delete();
         }
         catch ( IOException e )
         {

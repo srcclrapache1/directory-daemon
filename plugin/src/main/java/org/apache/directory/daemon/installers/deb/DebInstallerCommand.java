@@ -158,6 +158,9 @@ public class DebInstallerCommand extends MojoCommand
             MojoHelperUtils
                 .copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds-init" ), new File(
                     debEtcInitdDirectory, "apacheds-" + target.getApplication().getVersion() + "-default" ), true );
+
+            // Removing the redundant server.xml file (see DIRSERVER-1112)
+            new File( debApacheDsHomeDirectory, "conf/server.xml" ).delete();
         }
         catch ( IOException e )
         {
