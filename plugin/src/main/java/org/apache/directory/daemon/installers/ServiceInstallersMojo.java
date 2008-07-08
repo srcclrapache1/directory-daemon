@@ -28,6 +28,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.directory.daemon.installers.archive.ArchiveInstallerCommand;
+import org.apache.directory.daemon.installers.archive.ArchiveTarget;
 import org.apache.directory.daemon.installers.bin.BinInstallerCommand;
 import org.apache.directory.daemon.installers.bin.BinTarget;
 import org.apache.directory.daemon.installers.deb.DebInstallerCommand;
@@ -135,6 +137,10 @@ public class ServiceInstallersMojo extends AbstractMojo
      * @parameter
      */
     private BinTarget[] binTargets;
+    /**
+     * @parameter
+     */
+    private ArchiveTarget[] archiveTargets;
 
     /**
      * @parameter 
@@ -295,6 +301,13 @@ public class ServiceInstallersMojo extends AbstractMojo
                 binCmd = new BinInstallerCommand( this, ( BinTarget ) target );
                 binCmd.execute();
             }
+
+            if ( target instanceof ArchiveTarget )
+            {
+                ArchiveInstallerCommand archiveCmd = null;
+                archiveCmd = new ArchiveInstallerCommand( this, ( ArchiveTarget ) target );
+                archiveCmd.execute();
+            }
         }
     }
 
@@ -310,6 +323,7 @@ public class ServiceInstallersMojo extends AbstractMojo
         addAll( allTargets, macOsXPkgTargets );
         addAll( allTargets, solarisPkgTargets );
         addAll( allTargets, binTargets );
+        addAll( allTargets, archiveTargets );
     }
 
 
