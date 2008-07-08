@@ -36,12 +36,14 @@ import org.apache.directory.daemon.installers.inno.InnoInstallerCommand;
 import org.apache.directory.daemon.installers.inno.InnoTarget;
 import org.apache.directory.daemon.installers.izpack.IzPackInstallerCommand;
 import org.apache.directory.daemon.installers.izpack.IzPackTarget;
+import org.apache.directory.daemon.installers.macosxpkg.MacOsXPkgInstallerCommand;
+import org.apache.directory.daemon.installers.macosxpkg.MacOsXPkgTarget;
 import org.apache.directory.daemon.installers.nsis.NsisInstallerCommand;
 import org.apache.directory.daemon.installers.nsis.NsisTarget;
-import org.apache.directory.daemon.installers.pkg.PkgInstallerCommand;
-import org.apache.directory.daemon.installers.pkg.PkgTarget;
 import org.apache.directory.daemon.installers.rpm.RpmInstallerCommand;
 import org.apache.directory.daemon.installers.rpm.RpmTarget;
+import org.apache.directory.daemon.installers.solarispkg.SolarisPkgInstallerCommand;
+import org.apache.directory.daemon.installers.solarispkg.SolarisPkgTarget;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.model.Developer;
 import org.apache.maven.model.MailingList;
@@ -107,7 +109,12 @@ public class ServiceInstallersMojo extends AbstractMojo
     /**
      * @parameter
      */
-    private PkgTarget[] pkgTargets;
+    private MacOsXPkgTarget[] macOsXPkgTargets;
+
+    /**
+     * @parameter
+     */
+    private SolarisPkgTarget[] solarisPkgTargets;
 
     /**
      * @parameter
@@ -123,7 +130,7 @@ public class ServiceInstallersMojo extends AbstractMojo
      * @parameter
      */
     private DebTarget[] debTargets;
-    
+
     /**
      * @parameter
      */
@@ -260,21 +267,28 @@ public class ServiceInstallersMojo extends AbstractMojo
                 rpmCmd = new RpmInstallerCommand( this, ( RpmTarget ) target );
                 rpmCmd.execute();
             }
-            
-            if ( target instanceof PkgTarget )
+
+            if ( target instanceof MacOsXPkgTarget )
             {
-                PkgInstallerCommand pkgCmd = null;
-                pkgCmd = new PkgInstallerCommand( this, ( PkgTarget ) target );
+                MacOsXPkgInstallerCommand pkgCmd = null;
+                pkgCmd = new MacOsXPkgInstallerCommand( this, ( MacOsXPkgTarget ) target );
                 pkgCmd.execute();
             }
-            
+
+            if ( target instanceof SolarisPkgTarget )
+            {
+                SolarisPkgInstallerCommand pkgCmd = null;
+                pkgCmd = new SolarisPkgInstallerCommand( this, ( SolarisPkgTarget ) target );
+                pkgCmd.execute();
+            }
+
             if ( target instanceof DebTarget )
             {
                 DebInstallerCommand debCmd = null;
                 debCmd = new DebInstallerCommand( this, ( DebTarget ) target );
                 debCmd.execute();
             }
-            
+
             if ( target instanceof BinTarget )
             {
                 BinInstallerCommand binCmd = null;
@@ -293,7 +307,8 @@ public class ServiceInstallersMojo extends AbstractMojo
         addAll( allTargets, nsisTargets );
         addAll( allTargets, rpmTargets );
         addAll( allTargets, debTargets );
-        addAll( allTargets, pkgTargets );
+        addAll( allTargets, macOsXPkgTargets );
+        addAll( allTargets, solarisPkgTargets );
         addAll( allTargets, binTargets );
     }
 

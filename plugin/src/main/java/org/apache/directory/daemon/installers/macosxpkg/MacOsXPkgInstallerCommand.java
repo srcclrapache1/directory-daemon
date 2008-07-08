@@ -17,7 +17,7 @@
  *  under the License. 
  *  
  */
-package org.apache.directory.daemon.installers.pkg;
+package org.apache.directory.daemon.installers.macosxpkg;
 
 
 import java.io.File;
@@ -39,11 +39,11 @@ import org.apache.tools.ant.taskdefs.Execute;
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
  * @version $Rev: 434414 $
  */
-public class PkgInstallerCommand extends MojoCommand
+public class MacOsXPkgInstallerCommand extends MojoCommand
 {
     private final Properties filterProperties = new Properties( System.getProperties() );
     /** The PKG target */
-    private final PkgTarget target;
+    private final MacOsXPkgTarget target;
     /** The Maven logger */
     private final Log log;
     /** The PackageMaker utility executable */
@@ -53,14 +53,14 @@ public class PkgInstallerCommand extends MojoCommand
 
 
     /**
-     * Creates a new instance of PkgInstallerCommand.
+     * Creates a new instance of MacOsXPkgInstallerCommand.
      *
      * @param mymojo
      *      the Server Installers Mojo
      * @param target
      *      the PKG target
      */
-    public PkgInstallerCommand( ServiceInstallersMojo mymojo, PkgTarget target )
+    public MacOsXPkgInstallerCommand( ServiceInstallersMojo mymojo, MacOsXPkgTarget target )
     {
         super( mymojo );
         this.target = target;
@@ -82,7 +82,7 @@ public class PkgInstallerCommand extends MojoCommand
         // Verifying the target is macosx
         if ( !target.getOsFamily().equals( "macosx" ) )
         {
-            log.warn( "PKG installer can only be targeted for Mac OS X platforms!" );
+            log.warn( "Mac OS X PKG installer can only be targeted for Mac OS X platform!" );
             log.warn( "The build will continue, but please check the the platform of this installer " );
             log.warn( "target" );
             return;
@@ -179,6 +179,8 @@ public class PkgInstallerCommand extends MojoCommand
                 "org.apache.directory.server.plist" ), new File( pkgRootLibraryLaunchDaemons,
                 "org.apache.directory.server.plist" ), true );
 
+            // Removing the redundant server.xml file (see DIRSERVER-1112)
+            new File( pkgRootUsrLocalApachedsDirectory, "conf/server.xml" ).delete();
         }
         catch ( IOException e )
         {

@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+# Cleaning
+rm -rf /opt/apacheds-${app.version}

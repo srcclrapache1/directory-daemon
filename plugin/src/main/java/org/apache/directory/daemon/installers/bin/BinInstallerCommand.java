@@ -164,6 +164,9 @@ public class BinInstallerCommand extends MojoCommand
                 new File( binShDirectory, "install.sh" ), false );
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "variables.sh" ),
                 new File( binShDirectory, "variables.sh" ), false );
+
+            // Removing the redundant server.xml file (see DIRSERVER-1112)
+            new File( binRootFolderServerDirectory, "conf/server.xml" ).delete();
         }
         catch ( IOException e )
         {
