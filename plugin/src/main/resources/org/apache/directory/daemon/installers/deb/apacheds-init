@@ -19,6 +19,15 @@
 #  under the License.
 #
 
+### BEGIN INIT INFO
+# Provides: apacheds
+# Required-Start: $local_fs $remote_fs $network $syslog
+# Required-Stop: $local_fs $remote_fs $network $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start/stop Apache Directory Server
+### END INIT INFO 
+
 # Shell script to start/stop Apache Directory Server
 # If you want to change apacheds service settings please modify the apacheds.conf 
 # file for the instance you wish to change.
