@@ -48,11 +48,11 @@ f none /opt/apacheds-${version}/lib/log4j-1.2.14.jar 0644 root root
 f none /opt/apacheds-${version}/lib/libwrapper.so 0644 root root
 f none /opt/apacheds-${version}/lib/mina-core-1.1.6.jar 0644 root root
 f none /opt/apacheds-${version}/lib/mina-filter-ssl-1.1.6.jar 0644 root root
-f none /opt/apacheds-${version}/lib/shared-asn1-0.9.11.jar 0644 root root
-f none /opt/apacheds-${version}/lib/shared-asn1-codec-0.9.11.jar 0644 root root
-f none /opt/apacheds-${version}/lib/shared-bouncycastle-reduced-0.9.11.jar 0644 root root
-f none /opt/apacheds-${version}/lib/shared-ldap-0.9.11.jar 0644 root root
-f none /opt/apacheds-${version}/lib/shared-ldap-constants-0.9.11.jar 0644 root root
+f none /opt/apacheds-${version}/lib/shared-asn1-0.9.12.jar 0644 root root
+f none /opt/apacheds-${version}/lib/shared-asn1-codec-0.9.12.jar 0644 root root
+f none /opt/apacheds-${version}/lib/shared-bouncycastle-reduced-0.9.12.jar 0644 root root
+f none /opt/apacheds-${version}/lib/shared-ldap-0.9.12.jar 0644 root root
+f none /opt/apacheds-${version}/lib/shared-ldap-constants-0.9.12.jar 0644 root root
 f none /opt/apacheds-${version}/lib/slf4j-api-1.4.3.jar 0644 root root
 f none /opt/apacheds-${version}/lib/slf4j-log4j12-1.4.3.jar 0644 root root
 f none /opt/apacheds-${version}/lib/spring-beans-2.0.6.jar 0644 root root
