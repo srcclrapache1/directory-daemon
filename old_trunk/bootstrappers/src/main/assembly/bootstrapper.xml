@@ -1,0 +1,54 @@
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<assembly>
+  <id>daemon-bootstrappers</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>target/classes</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/</outputDirectory>
+      <unpack>true</unpack>
+      <scope>runtime</scope>
+      <excludes>
+        <exclude>aopalliance:aopalliance</exclude>
+        <exclude>jasperreports:jasperreports</exclude>
+        <exclude>freemarker:freemarker</exclude>
+        <exclude>asm:asm-util</exclude>
+        <exclude>asm:asm</exclude>
+        <exclude>com.jamonapi:jamon</exclude>
+        <exclude>xerces:xerces</exclude>
+        <exclude>commons-pool:commons-pool</exclude>
+        <exclude>com.sun:tools</exclude>
+        <exclude>xml-apis:xml-apis</exclude>
+        <exclude>aspectwerkz:aspectwerkz-core</exclude>
+        <exclude>velocity:velocity</exclude>
+        <exclude>org.springframework:spring-aop</exclude>
+        <exclude>qdox:qdox</exclude>
+        <exclude>commons-attributes:commons-attributes-compiler</exclude>
+        <exclude>cglib:cglib</exclude>
+      </excludes>
+    </dependencySet>
+  </dependencySets>
+</assembly>
