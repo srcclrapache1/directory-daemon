@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.apache.directory.project</groupId>
     <artifactId>project</artifactId>
-    <version>10</version>
+    <version>11</version>
   </parent>
   <groupId>org.apache.directory.daemon</groupId>
   <artifactId>daemon-parent</artifactId>
@@ -114,9 +114,9 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/trunk</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/trunk</developerConnection>
-    <url>http://svn.apache.org/viewvc/directory/daemon/trunk</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/branches/bigbang</developerConnection>
+    <url>http://svn.apache.org/viewvc/directory/project/releases/8/daemon-parent</url>
   </scm>
 
   <distributionManagement>
