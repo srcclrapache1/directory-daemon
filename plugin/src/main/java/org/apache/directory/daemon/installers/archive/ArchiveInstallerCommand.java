@@ -35,7 +35,6 @@ import org.apache.tools.ant.taskdefs.BZip2;
 import org.apache.tools.ant.taskdefs.GZip;
 import org.apache.tools.ant.taskdefs.Tar;
 import org.apache.tools.ant.taskdefs.Zip;
-import org.apache.tools.ant.types.FileSet;
 import org.codehaus.plexus.util.FileUtils;
 
 
