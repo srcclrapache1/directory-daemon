@@ -127,8 +127,8 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         File pkgRootDirectory = new File( pkgDirectory, "root" );
         pkgRootDirectory.mkdirs();
 
-        // Copying the apacheds files in the '/var/opt/apacheds/' directory
-        File apacheDsHomeDirectory = new File( pkgRootDirectory, "var/opt/apacheds" );
+        // Copying the apacheds files in the '/opt/apacheds-$VERSION/' directory
+        File apacheDsHomeDirectory = new File( pkgRootDirectory, "opt/apacheds-" + target.getApplication().getVersion() );
         try
         {
             // Copying the generated layout
@@ -145,8 +145,9 @@ public class SolarisPkgInstallerCommand extends MojoCommand
                 + ") to the PKG directory (" + apacheDsHomeDirectory + ")" );
         }
 
-        // Copying the default instance files in the '/var/opt/apacheds/instances/default' directory
-        File defaultInstanceDirectory = new File( apacheDsHomeDirectory, "instances/default" );
+        // Copying the instances in the '/var/lib/apacheds-$VERSION/default' directory
+        File defaultInstanceDirectory = new File( pkgRootDirectory, "var/lib/apacheds-"
+            + target.getApplication().getVersion() + "/default" );
         defaultInstanceDirectory.mkdirs();
         File debDefaultInstanceConfDirectory = new File( defaultInstanceDirectory, "conf" );
         debDefaultInstanceConfDirectory.mkdirs();
@@ -156,7 +157,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         new File( defaultInstanceDirectory, "run" ).mkdirs();
         File etcInitdDirectory = new File( pkgRootDirectory, "etc/init.d" );
         etcInitdDirectory.mkdirs();
-        new File( pkgRootDirectory, "/var/run/apacheds" ).mkdirs();
+        new File( pkgRootDirectory, "/var/run/apacheds-" + target.getApplication().getVersion() ).mkdirs();
         try
         {
             // Copying the apacheds.conf file in the default instance conf directory
@@ -174,7 +175,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
 
             // Copying the init script in /etc/init.d/
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds-init" ),
-                new File( etcInitdDirectory, "apacheds-default" ), true );
+                new File( etcInitdDirectory, "apacheds-" + target.getApplication().getVersion() + "-default" ), true );
 
             // Removing the redundant server.xml file (see DIRSERVER-1112)
             new File( apacheDsHomeDirectory, "conf/server.xml" ).delete();

@@ -27,8 +27,8 @@
 #
 
 # Variables
-INSTANCE_HOME=/var/opt/@app@/instances
-APACHEDS_HOME=/var/opt/@app@
+INSTANCE_HOME=/var/lib/@app@-@app.version@
+APACHEDS_HOME=/opt/@app@-@app.version@
 INSTANCE=default
 
 # Application
@@ -46,7 +46,7 @@ WRAPPER_CONF="$APACHEDS_HOME/conf/@app@.conf"
 PRIORITY=
 
 # Location of the pid file.
-PIDDIR="/var/run/@app@"
+PIDDIR="/var/run/@app@-@app.version@"
 
 # If uncommented, causes the Wrapper to be shutdown using an anchor file.
 #  When launched with the 'start' command, it will also ignore all INT and
@@ -137,7 +137,7 @@ then
 fi
 
 # Process ID
-ANCHORFILE="$PIDDIR/@app@-$INSTANCE.anchor"
+ANCHORFILE="$PIDDIR/@app@-@app.version@-$INSTANCE.anchor"
 PIDFILE="$PIDDIR/$INSTANCE.pid"
 LOCKDIR="/var/lock/subsys"
 LOCKFILE="$LOCKDIR/$INSTANCE"

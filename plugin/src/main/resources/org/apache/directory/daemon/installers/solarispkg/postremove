@@ -20,4 +20,4 @@
 set -e
 
 # Cleaning
-rm -rf /var/opt/apacheds
+rm -rf /opt/apacheds-${app.version}

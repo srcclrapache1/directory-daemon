@@ -20,8 +20,8 @@
 set -e
 
 # Setting executable permissions
-chmod +x /var/opt/apacheds/bin/apacheds
-chmod +x /etc/init.d/apacheds-default
+chmod +x /opt/apacheds-${app.version}/bin/apacheds
+chmod +x /etc/init.d/apacheds-${app.version}-default
 
 # Creating the apacheds user (only if needed)
 USER=`eval "id -u -n apacheds 2>/dev/null || :"`
@@ -32,14 +32,15 @@ then
 fi
 
 # Modifying owner
-chown -R apacheds:apacheds /var/opt/apacheds
-chown apacheds:apacheds /var/run/apacheds
-chown root:root /etc/init.d/apacheds-default
+chown -R apacheds:apacheds /opt/apacheds-${app.version}
+chown -R apacheds:apacheds /var/lib/apacheds-${app.version}
+chown apacheds:apacheds /var/run/apacheds-${app.version}
+chown root:root /etc/init.d/apacheds-${app.version}-default
 
 # Create symbolic links for runlevels for default instance
-ln -s /etc/init.d/apacheds-${app.version}-default /etc/rc0.d/K99apacheds-default
-ln -s /etc/init.d/apacheds-${app.version}-default /etc/rc3.d/S99apacheds-default
+ln -s /etc/init.d/apacheds-${app.version}-default /etc/rc0.d/K99apacheds-${app.version}-default
+ln -s /etc/init.d/apacheds-${app.version}-default /etc/rc3.d/S99apacheds-${app.version}-default
 
 # Start the default instance 
-/etc/init.d/apacheds-default start
+/etc/init.d/apacheds-${app.version}-default start
 
