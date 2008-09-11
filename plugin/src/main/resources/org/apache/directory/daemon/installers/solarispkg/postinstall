@@ -38,8 +38,8 @@ chown apacheds:apacheds /var/run/apacheds
 chown root:root /etc/init.d/apacheds-default
 
 # Create symbolic links for runlevels for default instance
-ln -s /etc/init.d/apacheds-default /etc/rc0.d/K99apacheds-${app.version}-default
-ln -s /etc/init.d/apacheds-default /etc/rc3.d/S99apacheds-${app.version}-default
+ln -s /etc/init.d/apacheds-default /etc/rc0.d/K99apacheds-default
+ln -s /etc/init.d/apacheds-default /etc/rc3.d/S99apacheds-default
 
 # Start the default instance 
 /etc/init.d/apacheds-default start
