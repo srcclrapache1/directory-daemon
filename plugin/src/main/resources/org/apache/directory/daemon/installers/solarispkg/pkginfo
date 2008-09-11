@@ -1,5 +1,5 @@
 PKG="apacheds"
-NAME="Apache DS ${version}"
+NAME="ApacheDS"
 VERSION="${version}"
 ARCH="x86"
 CLASSES="none"
