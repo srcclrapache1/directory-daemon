@@ -107,7 +107,9 @@ public class ArchiveInstallerCommand extends MojoCommand
         log.info( "Creating Archive Installer..." );
 
         // Creating the archive directory
-        File archiveDirectory = new File( imagesDirectory, target.getId() );
+        File targetDirectory = new File( imagesDirectory, target.getId() );
+        File archiveDirectory = new File( targetDirectory, target.getApplication().getName() + "_"
+            + target.getApplication().getVersion() );
 
         log.info( "Copying Archive Installer files" );
 
@@ -116,11 +118,14 @@ public class ArchiveInstallerCommand extends MojoCommand
         {
             // Copying the apacheds.bat file
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds.bat" ),
-                new File( archiveDirectory, "apacheds.bat" ), false );
+                new File( targetDirectory, "apacheds.bat" ), false );
 
             // Copying the apacheds.sh file
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds.sh" ),
-                new File( archiveDirectory, "apacheds.sh" ), false );
+                new File( targetDirectory, "apacheds.sh" ), false );
+
+            // Copying all the files in the final archive directory
+            MojoHelperUtils.copyFiles( targetDirectory, archiveDirectory );
         }
         catch ( IOException e )
         {
@@ -130,17 +135,18 @@ public class ArchiveInstallerCommand extends MojoCommand
 
         // Generating the Bin
         log.info( "Generating Archive Installer" );
-        
+
         Project project = new Project();
-        project.setBaseDir( archiveDirectory );
-        
+        project.setBaseDir( targetDirectory );
+
         // ZIP Archive
         if ( archiveType.equalsIgnoreCase( "zip" ) )
-        {   
+        {
             Zip zipTask = new Zip();
             zipTask.setProject( project );
             zipTask.setDestFile( new File( imagesDirectory, target.getFinalName() ) );
-            zipTask.setBasedir( archiveDirectory );
+            zipTask.setBasedir( targetDirectory );
+            zipTask.setIncludes( archiveDirectory.getName() + "/**" );
             zipTask.execute();
         }
         // TAR Archive
@@ -149,7 +155,8 @@ public class ArchiveInstallerCommand extends MojoCommand
             Tar tarTask = new Tar();
             tarTask.setProject( project );
             tarTask.setDestFile( new File( imagesDirectory, target.getFinalName() ) );
-            tarTask.setBasedir( archiveDirectory );
+            tarTask.setBasedir( targetDirectory );
+            tarTask.setIncludes( archiveDirectory.getName() + "/**" );
             tarTask.execute();
         }
         // TAR.GZ Archive
@@ -160,7 +167,8 @@ public class ArchiveInstallerCommand extends MojoCommand
             Tar tarTask = new Tar();
             tarTask.setProject( project );
             tarTask.setDestFile( tarFile );
-            tarTask.setBasedir( archiveDirectory );
+            tarTask.setBasedir( targetDirectory );
+            tarTask.setIncludes( archiveDirectory.getName() + "/**" );
             tarTask.execute();
 
             GZip gzipTask = new GZip();
@@ -179,7 +187,8 @@ public class ArchiveInstallerCommand extends MojoCommand
             Tar tarTask = new Tar();
             tarTask.setProject( project );
             tarTask.setDestFile( tarFile );
-            tarTask.setBasedir( archiveDirectory );
+            tarTask.setBasedir( targetDirectory );
+            tarTask.setIncludes( archiveDirectory.getName() + "/**" );
             tarTask.execute();
 
             BZip2 bzip2Task = new BZip2();

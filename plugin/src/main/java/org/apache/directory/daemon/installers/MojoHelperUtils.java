@@ -255,9 +255,11 @@ public class MojoHelperUtils
     {
         if ( src.isDirectory() )
         {
+            File[] files = src.listFiles();
+
             dest.mkdirs();
 
-            for ( File file : src.listFiles() )
+            for ( File file : files )
             {
                 copyFiles( file, new File( dest, file.getName() ) );
             }
