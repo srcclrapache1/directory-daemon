@@ -65,7 +65,7 @@
     <dependency>
       <groupId>plexus</groupId>
       <artifactId>plexus-utils</artifactId>
-      <version>1.5.6</version>
+      <version>1.0.3</version>
     </dependency>
 
     <dependency>
@@ -80,6 +80,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.4.3</version>
       </plugin>
     </plugins>
   </reporting>
