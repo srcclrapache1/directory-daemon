@@ -51,8 +51,7 @@ d none /opt/apacheds/lib/ext 0744 apacheds apacheds
 f none /opt/apacheds/lib/jcl-over-slf4j-1.5.2.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/libwrapper.so 0644 apacheds apacheds
 f none /opt/apacheds/lib/log4j-1.2.14.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/mina-core-1.1.7.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/mina-filter-ssl-1.1.7.jar 0644 apacheds apacheds
+f none /opt/apacheds/lib/mina-core-2.0.0-M4-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-asn1-0.9.14-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-asn1-codec-0.9.14-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-bouncycastle-reduced-0.9.14-SNAPSHOT.jar 0644 apacheds apacheds

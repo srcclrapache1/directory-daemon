@@ -63,13 +63,13 @@ public class InstallationLayout
     private transient URL[] extensionJars = null;
 
 
-    public InstallationLayout(File baseDirectory)
+    public InstallationLayout( File baseDirectory )
     {
         this.baseDirectory = baseDirectory;
     }
 
 
-    public InstallationLayout(String baseDirectoryPath)
+    public InstallationLayout( String baseDirectoryPath )
     {
         this.baseDirectory = new File( baseDirectoryPath );
     }
@@ -95,9 +95,9 @@ public class InstallationLayout
 
     public File getVarDirectory()
     {
-        String varDir = System.getProperty(VAR_DIR);
+        String varDir = System.getProperty( VAR_DIR );
 
-        if ( varDir != null)
+        if ( varDir != null )
         {
             return new File( varDir );
         }
@@ -108,7 +108,7 @@ public class InstallationLayout
 
     public File getLogDirectory()
     {
-        String logDir = System.getProperty(LOG_DIR);
+        String logDir = System.getProperty( LOG_DIR );
 
         if ( logDir != null)
         {
@@ -121,9 +121,9 @@ public class InstallationLayout
 
     public File getRunDirectory()
     {
-        String runDir = System.getProperty(RUN_DIR);
+        String runDir = System.getProperty( RUN_DIR );
 
-        if ( runDir != null)
+        if ( runDir != null )
         {
             return new File( runDir );
         }
@@ -257,16 +257,27 @@ public class InstallationLayout
         if ( dirs == null )
         {
             dirs = new File[]
-                { this.getBaseDirectory(), this.getBinDirectory(), this.getLibDirectory(),
-                    this.getExtensionsDirectory(), this.getConfigurationDirectory(), this.getVarDirectory(),
-                    this.getLogDirectory(), this.getPartitionsDirectory(), this.getRunDirectory() };
+                { 
+                getBaseDirectory(), 
+                getBinDirectory(), 
+                getLibDirectory(),
+                getExtensionsDirectory(), 
+                getConfigurationDirectory(), 
+                getVarDirectory(),
+                getLogDirectory(), 
+                getPartitionsDirectory(), 
+                getRunDirectory() 
+                };
         }
 
         if ( files == null )
         {
-            // only these files are requred to be present
+            // only these files are required to be present
             files = new File[]
-                { this.getBootstrapper(), this.getBootstrapperConfigurationFile() };
+                { 
+                getBootstrapper(), 
+                getBootstrapperConfigurationFile() 
+                };
         }
     }
 
@@ -275,40 +286,40 @@ public class InstallationLayout
     {
         init();
 
-        for ( int ii = 0; ii < dirs.length; ii++ )
+        for ( File dir:dirs )
         {
-            if ( !dirs[ii].exists() )
+            if ( !dir.exists() )
             {
-                throw new IllegalStateException( dirs[ii] + " does not exist!" );
+                throw new IllegalStateException( dir + " does not exist!" );
             }
 
-            if ( dirs[ii].isFile() )
+            if ( dir.isFile() )
             {
-                throw new IllegalStateException( dirs[ii] + " is a file when it should be a directory." );
+                throw new IllegalStateException( dir + " is a file when it should be a directory." );
             }
 
-            if ( !dirs[ii].canWrite() )
+            if ( !dir.canWrite() )
             {
-                throw new IllegalStateException( dirs[ii] + " is write protected from the current user: "
+                throw new IllegalStateException( dir + " is write protected from the current user: "
                     + System.getProperty( "user.name" ) );
             }
         }
 
-        for ( int ii = 0; ii < files.length; ii++ )
+        for ( File file:files )
         {
-            if ( !files[ii].exists() )
+            if ( !file.exists() )
             {
-                throw new IllegalStateException( files[ii] + " does not exist!" );
+                throw new IllegalStateException( file + " does not exist!" );
             }
 
-            if ( files[ii].isDirectory() )
+            if ( file.isDirectory() )
             {
-                throw new IllegalStateException( files[ii] + " is a directory when it should be a file." );
+                throw new IllegalStateException( file + " is a directory when it should be a file." );
             }
 
-            if ( !dirs[ii].canRead() )
+            if ( !file.canRead() )
             {
-                throw new IllegalStateException( files[ii] + " is not readable by the current user: "
+                throw new IllegalStateException( file + " is not readable by the current user: "
                     + System.getProperty( "user.name" ) );
             }
         }
