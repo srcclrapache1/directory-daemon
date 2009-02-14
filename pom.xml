@@ -122,11 +122,12 @@
   <distributionManagement>
     <site>
       <id>apache.directory.daemon</id>
-      <url>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</url>
+      <url>${distributionManagement.site.url}</url>
     </site>
   </distributionManagement>
   
   <properties>
+    <distributionManagement.site.url>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</distributionManagement.site.url>
     <skin.version>1.0.0-SNAPSHOT</skin.version>
   </properties>
 
