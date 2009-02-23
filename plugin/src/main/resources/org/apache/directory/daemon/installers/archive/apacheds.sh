@@ -32,4 +32,4 @@ do
   ADS_CP=${ADS_CP}:lib/ext/${i}
 done
 
-java -Dlog4j.configuration=file:conf/log4j.properties -cp $ADS_CP org.apache.directory.server.UberjarMain conf/server.xml
+java -Dlog4j.configuration=file:conf/log4j.properties -Dapacheds.log.dir=logs -cp $ADS_CP org.apache.directory.server.UberjarMain conf/server.xml

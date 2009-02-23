@@ -24,4 +24,4 @@ for /F %%a in ('dir lib\ /a /b /-p /o') do set ADS_CP=%ADS_CP%;"lib\%%a"
 
 for /F %%a in ('dir lib\ext\ /a /b /-p /o') do set ADS_CP=%ADS_CP%;"lib\ext\%%a"
 
-java -Dlog4j.configuration="file:conf/log4j.properties" -cp %ADS_CP% org.apache.directory.server.UberjarMain conf\server.xml
+java -Dlog4j.configuration="file:conf/log4j.properties" -Dapacheds.log.dir=logs -cp %ADS_CP% org.apache.directory.server.UberjarMain conf\server.xml
