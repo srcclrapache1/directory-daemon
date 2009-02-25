@@ -34,15 +34,6 @@
     A plugin that builds installers using bootstrappers and commons-daemon procrun and jsvc
   </description>
 
-<!-- 
-  <distributionManagement>
-    <site>
-      <id>apache.websites</id>
-      <url>scp://minotaur.apache.org/www/directory.apache.org/newsite/subprojects/daemon/</url>
-    </site>
-  </distributionManagement>
--->
-
   <dependencies>
     <dependency>
       <groupId>${pom.groupId}</groupId>
@@ -80,7 +71,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
-        <version>2.4.3</version>
       </plugin>
     </plugins>
   </reporting>

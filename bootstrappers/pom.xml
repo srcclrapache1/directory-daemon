@@ -35,23 +35,11 @@
     an installation footprint.
   </description>
 
-<!-- 
-  <distributionManagement>
-    <site>
-      <id>apache.websites</id>
-      <url>
-        scp://minotaur.apache.org/www/directory.apache.org/newsite/subprojects/daemon
-      </url>
-    </site>
-  </distributionManagement>
--->
-
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.2</version>
         <configuration>
           <archive>
             <manifestFile>src/main/manifest/MANIFEST.MF</manifestFile>

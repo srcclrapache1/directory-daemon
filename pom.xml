@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.apache.directory.project</groupId>
     <artifactId>project</artifactId>
-    <version>13</version>
+    <version>15</version>
   </parent>
   <groupId>org.apache.directory.daemon</groupId>
   <artifactId>daemon-parent</artifactId>
@@ -122,12 +122,12 @@
   <distributionManagement>
     <site>
       <id>apache.directory.daemon</id>
-      <url>${distributionManagement.site.url}</url>
+      <url>${distMgmtSiteUrl}</url>
     </site>
   </distributionManagement>
   
   <properties>
-    <distributionManagement.site.url>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</distributionManagement.site.url>
+    <distMgmtSiteUrl>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</distMgmtSiteUrl>
     <skin.version>1.0.0-SNAPSHOT</skin.version>
   </properties>
 
@@ -137,7 +137,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.4</version>
         <configuration>
           <aggregate>true</aggregate>
         </configuration>
@@ -180,24 +179,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
-        <version>1.1.1</version>
-        <configuration>
-          <xmlOutput>false</xmlOutput>
-          <!--
-            <xmlOutput>true|false</xmlOutput>
-            <xmlOutputDirectory>directory location of xml findbugs report</xmlOutputDirectory>
-            <threshold>High|Normal|Low|Exp|Ignore</threshold>
-            <effort>Min|Default|Max</effort>
-            <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
-            <includeFilterFile>findbugs-include.xml</includeFilterFile>
-            <visitors>FindDeadLocalStores,UnreadFields</visitors>
-            <omitVisitors>FindDeadLocalStores,UnreadFields</omitVisitors>
-            <onlyAnalyze>org.codehaus.mojo.findbugs.*</onlyAnalyze>
-            <pluginList>/libs/fb-contrib/fb-contrib-2.8.0.jar</pluginList>
-            <debug>true|false</debug>
-            <relaxed>true|false</relaxed>
-          -->
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -206,12 +187,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.2</version>
       </plugin>
     </plugins>
   </reporting>
 
   <repositories>
+    <!-- Remove me when ASF CI can deploy Snapshots -->
     <repository>
       <id>apache.directory.snapshot.repo</id>
       <name>Snapshot repository for the Apache Directory project</name>
@@ -221,6 +202,5 @@
       </releases>
     </repository>
   </repositories>
-  
 </project>
 
