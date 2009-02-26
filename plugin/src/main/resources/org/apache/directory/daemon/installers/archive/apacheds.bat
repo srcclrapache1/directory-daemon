@@ -19,9 +19,8 @@ REM  under the License.
 REM ---------------------------------
 REM dynamically build the classpath
 REM ---------------------------------
-set ADS_CP=
-for /F %%a in ('dir lib\ /a /b /-p /o') do set ADS_CP=%ADS_CP%;"lib\%%a"
+set ADS_CLASSPATH=
+for %%i in (.\lib\*.jar) do call cpappend.bat %%1
+for %%i in (.\lib\ext\*.jar) do call cpappend.bat %%1
 
-for /F %%a in ('dir lib\ext\ /a /b /-p /o') do set ADS_CP=%ADS_CP%;"lib\ext\%%a"
-
-java -Dlog4j.configuration="file:conf/log4j.properties" -Dapacheds.log.dir=logs -cp %ADS_CP% org.apache.directory.server.UberjarMain conf\server.xml
+java -Dlog4j.configuration="file:conf/log4j.properties" -Dapacheds.log.dir=logs -cp %ADS_CLASSPATH% org.apache.directory.server.UberjarMain conf\server.xml

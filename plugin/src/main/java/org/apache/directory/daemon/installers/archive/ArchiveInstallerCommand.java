@@ -120,6 +120,10 @@ public class ArchiveInstallerCommand extends MojoCommand
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds.bat" ),
                 new File( targetDirectory, "apacheds.bat" ), false );
 
+            // Copying the cpappend.bat file
+            MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "cpappend.bat" ),
+                new File( targetDirectory, "cpappend.bat" ), false );
+
             // Copying the apacheds.sh file
             MojoHelperUtils.copyAsciiFile( mymojo, filterProperties, getClass().getResourceAsStream( "apacheds.sh" ),
                 new File( targetDirectory, "apacheds.sh" ), false );
