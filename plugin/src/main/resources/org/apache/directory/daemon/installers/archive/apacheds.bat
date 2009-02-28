@@ -20,7 +20,7 @@ REM ---------------------------------
 REM dynamically build the classpath
 REM ---------------------------------
 set ADS_CLASSPATH=
-for %%i in (.\lib\*.jar) do call cpappend.bat %%1
-for %%i in (.\lib\ext\*.jar) do call cpappend.bat %%1
+for %%i in (.\lib\*.jar) do call cpappend.bat %%i
+for %%i in (.\lib\ext\*.jar) do call cpappend.bat %%i
 
 java -Dlog4j.configuration="file:conf/log4j.properties" -Dapacheds.log.dir=logs -cp %ADS_CLASSPATH% org.apache.directory.server.UberjarMain conf\server.xml
