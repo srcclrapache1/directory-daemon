@@ -71,10 +71,6 @@ verifyExitCode
 mkdir -p $DEFAULT_INSTANCE_HOME_DIRECTORY/run
 verifyExitCode
 
-# Creating the PID directory
-mkdir -p /var/run/apacheds-$APACHEDS_VERSION
-verifyExitCode
-
 # Copying the default instance files
 cp ../rootFolder/instance/apacheds.conf $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
 verifyExitCode
@@ -96,27 +92,30 @@ sed -e "s;@INSTANCE@;${DEFAULT_INSTANCE_NAME};" ../rootFolder/instance/apacheds-
 verifyExitCode
 mv ../rootFolder/instance/apacheds-init.tmp ../rootFolder/instance/apacheds-init
 verifyExitCode
-cp ../rootFolder/instance/apacheds-init /etc/init.d/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
+sed -e "s;@RUN_AS_USER@;${RUN_AS_USER};" ../rootFolder/instance/apacheds-init > ../rootFolder/instance/apacheds-init.tmp
+verifyExitCode
+mv ../rootFolder/instance/apacheds-init.tmp ../rootFolder/instance/apacheds-init
+verifyExitCode
+cp ../rootFolder/instance/apacheds-init $STARTUP_SCRIPT_DIRECTORY/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
 verifyExitCode
 
 # Setting the correct permissions on executable files
-chmod +x /etc/init.d/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
+chmod +x $STARTUP_SCRIPT_DIRECTORY/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
 verifyExitCode
 chmod +x $APACHEDS_HOME_DIRECTORY/bin/apacheds
 verifyExitCode
 
 # Creating the apacheds user (only if needed)
-USER=`eval "id -u -n apacheds"`
-if [ ! "Xapacheds" = "X$USER" ]
+USER=`eval "id -u -n $RUN_AS_USER"`
+if [ ! "X$RUN_AS_USER" = "X$USER" ]
 then
-	/usr/sbin/groupadd apacheds >/dev/null 2>&1 || :
+	/usr/sbin/groupadd $RUN_AS_USER >/dev/null 2>&1 || :
 	verifyExitCode
-	/usr/sbin/useradd -g apacheds -d $APACHEDS_HOME_DIRECTORY apacheds >/dev/null 2>&1 || :
+	/usr/sbin/useradd -g $RUN_AS_USER -d $APACHEDS_HOME_DIRECTORY $RUN_AS_USER >/dev/null 2>&1 || :
 	verifyExitCode
 fi
 
 # Modifying owner
-chown -R apacheds:apacheds $APACHEDS_HOME_DIRECTORY
-chown -R apacheds:apacheds $INSTANCES_HOME_DIRECTORY
-chown apacheds:apacheds /var/run/apacheds-$APACHEDS_VERSION
-chown root:root /etc/init.d/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME
+chown -R $RUN_AS_USER:$RUN_AS_USER $APACHEDS_HOME_DIRECTORY
+chown -R $RUN_AS_USER:$RUN_AS_USER $INSTANCES_HOME_DIRECTORY
+chown $RUN_AS_USER:$RUN_AS_USER $STARTUP_SCRIPT_DIRECTORY/apacheds-$APACHEDS_VERSION-$DEFAULT_INSTANCE_NAME

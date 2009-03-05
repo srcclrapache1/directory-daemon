@@ -46,7 +46,7 @@ WRAPPER_CONF="$APACHEDS_HOME/conf/@app@.conf"
 PRIORITY=
 
 # Location of the pid file.
-PIDDIR="/var/run/@app@-@app.version@"
+PIDDIR="@INSTANCE.HOME@/@INSTANCE@/run"
 
 # If uncommented, causes the Wrapper to be shutdown using an anchor file.
 #  When launched with the 'start' command, it will also ignore all INT and
@@ -61,7 +61,7 @@ PIDDIR="/var/run/@app@-@app.version@"
 # NOTE - This will set the user which is used to run the Wrapper as well as
 #  the JVM and is not useful in situations where a privileged resource or
 #  port needs to be allocated prior to the user being changed.
-RUN_AS_USER=$APP_NAME
+RUN_AS_USER=@RUN_AS_USER@
 
 # Do not modify anything beyond this point
 #-----------------------------------------------------------------------------
@@ -415,7 +415,7 @@ testpiddir()
 	then
 		# If it doesn't exist, we create it
    		mkdir -p $PIDDIR
-   		chown apacheds:apacheds $PIDDIR
+   		chown $RUN_AS_USER:$RUN_AS_USER $PIDDIR
 	fi
 }
 
