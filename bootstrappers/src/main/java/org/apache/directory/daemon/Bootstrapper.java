@@ -43,7 +43,9 @@ import org.slf4j.Logger;
 
 
 /**
- * The base bootstrapper extended by all frameworks and java applications.
+ * The base Bootstrapper extended by all frameworks and java applications. The
+ * basic machinery to load an DaemonApplication class for lifecycle method 
+ * calls exists here.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
  * @version $Rev$
@@ -70,7 +72,7 @@ public class Bootstrapper
     private ClassLoader parent;
     private String startClassName;
     private String stopClassName;
-    private Class startClass;
+    private Class<DaemonApplication> startClass;
     private DaemonApplication start;
     private DaemonApplication stop;
 
@@ -123,12 +125,13 @@ public class Bootstrapper
     }
 
 
+    @SuppressWarnings("unchecked")
     public void callInit( String[] args )
     {
         Thread.currentThread().setContextClassLoader( application );
         try
         {
-            startClass = application.loadClass( args[0] );
+            startClass = ( Class<DaemonApplication> ) application.loadClass ( args[0] );
         }
         catch ( ClassNotFoundException e )
         {
@@ -138,7 +141,7 @@ public class Bootstrapper
 
         try
         {
-            start = ( DaemonApplication ) startClass.newInstance();
+            start = startClass.newInstance();
         }
         catch ( Exception e )
         {
