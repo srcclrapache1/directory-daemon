@@ -17,13 +17,13 @@
  *  under the License.
  *
  */
-
 package org.apache.directory.daemon;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tanukisoftware.wrapper.WrapperListener;
 import org.tanukisoftware.wrapper.WrapperManager;
+
 
 /**
  * The bootstrapper used by Tanuki Wrapper.
@@ -40,12 +40,15 @@ public class TanukiBootstrapper extends Bootstrapper implements WrapperListener
     {
     }
 
+    
     public static void main( String[] args )
     {
         WrapperManager.start( new TanukiBootstrapper(), args );
     }
 
-    public Integer start(String[] args) {
+    
+    public Integer start( String[] args ) 
+    {
         setInstallationLayout( args[0] );
         setParentLoader( Thread.currentThread().getContextClassLoader() );
         callInit( shift( args, 1 ) );
@@ -53,7 +56,9 @@ public class TanukiBootstrapper extends Bootstrapper implements WrapperListener
         return null;
     }
 
-    public int stop(int exitCode) {
+    
+    public int stop( int exitCode ) 
+    {
         log.info( "Attempting graceful shutdown of this server instance" );
 
         callStop( EMPTY_STRARRAY );
@@ -64,19 +69,23 @@ public class TanukiBootstrapper extends Bootstrapper implements WrapperListener
         return exitCode;
     }
 
-    public void controlEvent(int event) {
-        log.error("Recvd Event: " + event);
-        if (WrapperManager.isControlledByNativeWrapper()) {
+    
+    public void controlEvent( int event ) 
+    {
+        log.error( "Recvd Event: " + event );
+        if ( WrapperManager.isControlledByNativeWrapper() ) 
+        {
             // The Wrapper will take care of this event
-        } else {
+        } 
+        else 
+        {
             // We are not being controlled by the Wrapper, so
             //  handle the event ourselves.
-            if ((event == WrapperManager.WRAPPER_CTRL_C_EVENT) ||
-                    (event == WrapperManager.WRAPPER_CTRL_CLOSE_EVENT) ||
-                    (event == WrapperManager.WRAPPER_CTRL_SHUTDOWN_EVENT)){
-                WrapperManager.stop(0);
+            if ( ( event == WrapperManager.WRAPPER_CTRL_C_EVENT ) ||
+                 ( event == WrapperManager.WRAPPER_CTRL_CLOSE_EVENT ) ||
+                 ( event == WrapperManager.WRAPPER_CTRL_SHUTDOWN_EVENT ) ) {
+                WrapperManager.stop( 0 );
             }
         }
     }
-
 }
