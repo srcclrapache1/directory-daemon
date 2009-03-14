@@ -80,7 +80,7 @@ public class ServiceInstallersMojo extends AbstractMojo
     /**
      * The target directory into which the mojo creates os and platform 
      * specific images.
-     * @parameter expression="target/images"
+     * @parameter default-value="${project.build.directory}/images"
      */
     private File outputDirectory;
 
@@ -88,12 +88,12 @@ public class ServiceInstallersMojo extends AbstractMojo
      * The source directory where various configuration files for the installer 
      * are stored.
      * 
-     * @parameter expression="src/main/installers"
+     * @parameter default-value="${project.basedir}/src/main/installers"
      */
     private File sourceDirectory;
 
     /**
-     * @parameter expression="${project}"
+     * @parameter expression="${project}" default-value="${project}"
      * @required
      */
     private MavenProject project;
@@ -165,22 +165,22 @@ public class ServiceInstallersMojo extends AbstractMojo
     private String svnBaseUrl;
 
     /**
-     * @parameter
+     * @parameter default-value="false"
      */
-    private boolean packageSources = false;
+    private boolean packageSources;
 
     /**
-     * @parameter
+     * @parameter default-value="false"
      */
-    private boolean packageDocs = false;
+    private boolean packageDocs;
 
     /**
-     * @parameter expression="src"
+     * @parameter default-value="src"
      */
     private String sourcesTargetPath;
 
     /**
-     * @parameter expression="docs"
+     * @parameter default-value="docs"
      */
     private String docsTargetPath;
 
