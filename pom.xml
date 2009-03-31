@@ -128,7 +128,7 @@
   
   <properties>
     <distMgmtSiteUrl>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</distMgmtSiteUrl>
-    <skin.version>1.0.0-SNAPSHOT</skin.version>
+    <skin.version>1.0.0</skin.version>
   </properties>
 
   <reporting>
