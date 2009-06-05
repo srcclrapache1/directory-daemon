@@ -42,7 +42,7 @@ f none /opt/apacheds/lib/apacheds-xbean-spring-1.5.5-SNAPSHOT.jar 0644 apacheds 
 f none /opt/apacheds/lib/apacheds-xdbm-search-1.5.5-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/apacheds-xdbm-tools-1.5.5-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/bootstrapper.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/commons-cli-1.1.jar 0644 apacheds apacheds
+f none /opt/apacheds/lib/commons-cli-1.2.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/commons-collections-3.2.1.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/commons-daemon-1.0.1.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/commons-io-1.4.jar 0644 apacheds apacheds
