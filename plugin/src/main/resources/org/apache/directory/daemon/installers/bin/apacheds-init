@@ -67,15 +67,17 @@ RUN_AS_USER=@RUN_AS_USER@
 #-----------------------------------------------------------------------------
 
 # Get the fully qualified path to the script
-case $0 in
-    /*)
-        SCRIPT="$0"
-        ;;
-    *)
-        PWD=`pwd`
-        SCRIPT="$PWD/$0"
-        ;;
-esac
+case $0 in 
+    /*) 
+        SCRIPT="$0" 
+        ;; 
+   ./*) 
+        SCRIPT="`pwd`/`echo $0 | sed -e 's/^[ ]*\.\///'`" 
+        ;; 
+     *) 
+        SCRIPT="`pwd`/`echo $0 | sed -e 's/^[ ]*//'`" 
+        ;; 
+esac 
 
 # Resolve the true real path without any sym links.
 CHANGED=true
