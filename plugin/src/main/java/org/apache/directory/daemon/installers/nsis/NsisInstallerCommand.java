@@ -59,7 +59,7 @@ public class NsisInstallerCommand extends MojoCommand
         super( mymojo );
         this.target = target;
         this.log = mymojo.getLog();
-        File imagesDir = target.getLayout().getBaseDirectory().getParentFile();
+        File imagesDir = target.getLayout().getInstallHomeDir().getParentFile();
         nsisConfigurationFile = new File( imagesDir, target.getId() + ".nsi" );
         initializeFiltering();
     }
@@ -204,7 +204,7 @@ public class NsisInstallerCommand extends MojoCommand
             { nsisCompiler.getAbsolutePath(), nsisConfigurationFile.getAbsolutePath() };
         task.setCommandline( cmd );
         task.setSpawn( true );
-        task.setWorkingDirectory( target.getLayout().getBaseDirectory() );
+        task.setWorkingDirectory( target.getLayout().getInstallHomeDir() );
         try
         {
             task.execute();
@@ -284,9 +284,9 @@ public class NsisInstallerCommand extends MojoCommand
         filterProperties.put( "app.readme.name", target.getLayout().getReadmeFile().getName() );
         filterProperties.put( "app.icon", target.getLayout().getLogoIconFile().getPath() );
         filterProperties.put( "app.icon.name", target.getLayout().getLogoIconFile().getName() );
-        filterProperties.put( "image.basedir", target.getLayout().getBaseDirectory().getPath() );
+        filterProperties.put( "image.basedir", target.getLayout().getInstallHomeDir().getPath() );
         filterProperties.put( "app.lib.jars", getApplicationLibraryJars() );
-        filterProperties.put( "installer.output.directory", target.getLayout().getBaseDirectory().getParent() );
+        filterProperties.put( "installer.output.directory", target.getLayout().getInstallHomeDir().getParent() );
 
         if ( target.getDocsDirectory() != null )
         {
@@ -306,7 +306,7 @@ public class NsisInstallerCommand extends MojoCommand
             filterProperties.put( "sources.directive", "" );
         }
 
-        File noticeFile = new File( target.getLayout().getBaseDirectory(), "NOTICE.txt" );
+        File noticeFile = new File( target.getLayout().getInstallHomeDir(), "NOTICE.txt" );
         if ( noticeFile.exists() )
         {
             filterProperties.put( "notice.file", "Source: {#SourceBase}\\NOTICE.txt; DestDir: "

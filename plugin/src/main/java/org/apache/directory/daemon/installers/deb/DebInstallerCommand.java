@@ -98,7 +98,7 @@ public class DebInstallerCommand extends MojoCommand
             dpkgUtility = target.getDpkgUtility();
         }
 
-        File baseDirectory = target.getLayout().getBaseDirectory();
+        File baseDirectory = target.getLayout().getInstallHomeDir();
         File imagesDirectory = baseDirectory.getParentFile();
 
         log.info( "Creating Debian DEB Package..." );
@@ -123,7 +123,7 @@ public class DebInstallerCommand extends MojoCommand
         catch ( IOException e )
         {
             log.error( e.getMessage() );
-            throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getBaseDirectory()
+            throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getInstallHomeDir()
                 + ") to the DEB directory (" + debApacheDsHomeDirectory + ")" );
         }
 
