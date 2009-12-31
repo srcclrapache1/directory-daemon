@@ -126,7 +126,7 @@
   </distributionManagement>
   
   <properties>
-    <distMgmtSiteUrl>scpexe://vm094.oxylos.org/var/www/html/projects/daemon/</distMgmtSiteUrl>
+    <distMgmtSiteUrl>scpexe://people.apache.org/www/directory.apache.org/daemon/gen-docs/${version}/</distMgmtSiteUrl>
     <skin.version>1.0.0</skin.version>
   </properties>
 
