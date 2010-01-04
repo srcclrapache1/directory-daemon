@@ -253,6 +253,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         filterProperties.putAll( mymojo.getProject().getProperties() );
         filterProperties.put( "app", target.getApplication().getName() );
         filterProperties.put( "app.name", target.getApplication().getName() );
+        filterProperties.put( "osArch", target.getOsArch() );
         if ( target.getApplication().getVersion() != null )
         {
             filterProperties.put( "app.version", target.getApplication().getVersion() );
