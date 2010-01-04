@@ -77,7 +77,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
      */
     public void execute() throws MojoExecutionException, MojoFailureException
     {
-        // Verifying the target is macosx
+        // Verifying the target is solaris
         if ( !target.getOsName().equals( "solaris" ) )
         {
             log.warn( "Solaris PKG installer can only be targeted for Solaris platform!" );
@@ -241,7 +241,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         catch ( IOException e )
         {
             log.error( e.getMessage() );
-            throw new MojoFailureException( "Failed while trying to generate the DMG: " + e.getMessage() );
+            throw new MojoFailureException( "Failed while trying to generate the PKG: " + e.getMessage() );
         }
 
         log.info( "Solaris PKG generated at " + new File( imagesDirectory, finalName ) );

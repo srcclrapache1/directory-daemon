@@ -20,7 +20,7 @@
 set -e
 
 # Creating the apacheds user (only if needed)
-USER=`eval "id -u -n apacheds 2>/dev/null || :"`
+USER=`getent passwd apacheds | cut -d: -f1` 
 if [ ! "Xapacheds" = "X$USER" ]
 then
 	/usr/sbin/groupadd apacheds >/dev/null 2>&1 || :
