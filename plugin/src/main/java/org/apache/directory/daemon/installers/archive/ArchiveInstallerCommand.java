@@ -101,7 +101,7 @@ public class ArchiveInstallerCommand extends MojoCommand
             return;
         }
 
-        File baseDirectory = target.getLayout().getBaseDirectory();
+        File baseDirectory = target.getLayout().getInstallHomeDir();
         File imagesDirectory = baseDirectory.getParentFile();
 
         log.info( "Creating Archive Installer..." );

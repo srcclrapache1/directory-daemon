@@ -36,13 +36,10 @@ import org.slf4j.LoggerFactory;
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
  * @version $Rev$
  */
-public class InstallationLayout
+public class InstallLayout
 {
-    private final static Logger log = LoggerFactory.getLogger( InstallationLayout.class );
+    private final static Logger log = LoggerFactory.getLogger( InstallLayout.class );
     private final static FileFilter JAR_FILTER;
-    public static final String VAR_DIR = "apacheds.var.dir";
-    public static final String LOG_DIR = "apacheds.log.dir";
-    public static final String RUN_DIR = "apacheds.run.dir";
 
     static
     {
@@ -55,7 +52,7 @@ public class InstallationLayout
         };
     }
 
-    protected final File baseDirectory;
+    protected final File installHomeDir;
     private transient File[] dirs;
     private transient File[] files;
     private transient URL[] allJars = null;
@@ -63,78 +60,27 @@ public class InstallationLayout
     private transient URL[] extensionJars = null;
 
 
-    public InstallationLayout( File baseDirectory )
+    public InstallLayout( File installHomeDir )
     {
-        this.baseDirectory = baseDirectory;
+        this.installHomeDir = installHomeDir;
     }
 
 
-    public InstallationLayout( String baseDirectoryPath )
+    public File getInstallHomeDir()
     {
-        this.baseDirectory = new File( baseDirectoryPath );
-    }
-
-
-    public File getBaseDirectory()
-    {
-        return baseDirectory;
+        return installHomeDir;
     }
 
 
     public File getBinDirectory()
     {
-        return new File( baseDirectory, "bin" );
+        return new File( installHomeDir, "bin" );
     }
 
 
     public File getLibDirectory()
     {
-        return new File( baseDirectory, "lib" );
-    }
-
-
-    public File getVarDirectory()
-    {
-        String varDir = System.getProperty( VAR_DIR );
-
-        if ( varDir != null )
-        {
-            return new File( varDir );
-        }
-        
-        return new File( baseDirectory, "var" );
-    }
-
-
-    public File getLogDirectory()
-    {
-        String logDir = System.getProperty( LOG_DIR );
-
-        if ( logDir != null)
-        {
-            return new File( logDir );
-        }
-
-        return new File( getVarDirectory(), "log" );
-    }
-
-
-    public File getRunDirectory()
-    {
-        String runDir = System.getProperty( RUN_DIR );
-
-        if ( runDir != null )
-        {
-            return new File( runDir );
-        }
-
-        return new File( getVarDirectory(), "run" );
-    }
-
-
-    public File getPidFile()
-    {
-        return new File( getRunDirectory(), "server.pid" );
+        return new File( installHomeDir, "lib" );
     }
 
 
@@ -174,15 +120,9 @@ public class InstallationLayout
     }
 
 
-    public File getPartitionsDirectory()
-    {
-        return new File( getVarDirectory(), "partitions" );
-    }
-
-
     public File getConfigurationDirectory()
     {
-        return new File( baseDirectory, "conf" );
+        return new File( installHomeDir, "conf" );
     }
 
 
@@ -198,18 +138,6 @@ public class InstallationLayout
     }
 
 
-    public File getLoggerConfigurationFile()
-    {
-        return getLoggerConfigurationFile( "log4j.properties" );
-    }
-
-
-    public File getLoggerConfigurationFile( String name )
-    {
-        return new File( getConfigurationDirectory(), name );
-    }
-
-
     public File getLogoIconFile()
     {
         return getLogoIconFile( "logo.ico" );
@@ -218,7 +146,7 @@ public class InstallationLayout
 
     public File getLogoIconFile( String name )
     {
-        return new File( getBaseDirectory(), name );
+        return new File( getInstallHomeDir(), name );
     }
 
 
@@ -230,7 +158,7 @@ public class InstallationLayout
 
     public File getLicenseFile( String name )
     {
-        return new File( getBaseDirectory(), name );
+        return new File( getInstallHomeDir(), name );
     }
 
 
@@ -242,7 +170,7 @@ public class InstallationLayout
 
     public File getReadmeFile( String name )
     {
-        return new File( getBaseDirectory(), name );
+        return new File( getInstallHomeDir(), name );
     }
 
 
@@ -252,21 +180,23 @@ public class InstallationLayout
     }
 
 
+    public File getLoggerConfigurationFile()
+    {
+        return new File( getConfigurationDirectory(), "log4j.properties" );
+    }
+
+
     public void init()
     {
         if ( dirs == null )
         {
             dirs = new File[]
                 { 
-                getBaseDirectory(), 
+                getInstallHomeDir(), 
                 getBinDirectory(), 
                 getLibDirectory(),
                 getExtensionsDirectory(), 
                 getConfigurationDirectory(), 
-                getVarDirectory(),
-                getLogDirectory(), 
-                getPartitionsDirectory(), 
-                getRunDirectory() 
                 };
         }
 

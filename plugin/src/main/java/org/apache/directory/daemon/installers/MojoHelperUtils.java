@@ -36,7 +36,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.directory.daemon.InstallationLayout;
+import org.apache.directory.daemon.InstallLayout;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.tools.ant.taskdefs.Execute;
@@ -128,7 +128,7 @@ public class MojoHelperUtils
     }
 
 
-    public static List copyDependencies( ServiceInstallersMojo mymojo, InstallationLayout layout )
+    public static List copyDependencies( ServiceInstallersMojo mymojo, InstallLayout layout )
         throws MojoFailureException
     {
         List<Artifact> libArtifacts = new ArrayList<Artifact>();
