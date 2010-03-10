@@ -24,7 +24,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Locale;
 
-import org.apache.directory.daemon.InstallLayout;
+import org.apache.directory.daemon.InstallationLayout;
 
 
 /**
@@ -78,7 +78,7 @@ public class Target
     private String docsTargetPath;
     private File scriptFile;
 
-    private InstallLayout layout;
+    private InstallationLayout layout;
     private List libArtifacts;
 
     private Application application;
@@ -210,13 +210,13 @@ public class Target
     }
 
 
-    public void setLayout( InstallLayout layout )
+    public void setLayout( InstallationLayout layout )
     {
         this.layout = layout;
     }
 
 
-    public InstallLayout getLayout()
+    public InstallationLayout getLayout()
     {
         return layout;
     }

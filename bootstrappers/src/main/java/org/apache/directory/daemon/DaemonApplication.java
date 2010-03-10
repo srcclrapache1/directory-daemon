@@ -35,7 +35,7 @@ public interface DaemonApplication
      * @param args the shifted arguments after the installation home path and 
      * the command arguments are removed
      */
-    void init( InstanceLayout layout, String[] args ) throws Exception;
+    void init( InstallationLayout layout, String[] args ) throws Exception;
 
 
     /**

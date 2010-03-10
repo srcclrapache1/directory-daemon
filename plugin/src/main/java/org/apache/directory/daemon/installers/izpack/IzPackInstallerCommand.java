@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.directory.daemon.InstallLayout;
+import org.apache.directory.daemon.InstallationLayout;
 import org.apache.directory.daemon.installers.MojoCommand;
 import org.apache.directory.daemon.installers.MojoHelperUtils;
 import org.apache.directory.daemon.installers.ServiceInstallersMojo;
@@ -53,7 +53,7 @@ public class IzPackInstallerCommand extends MojoCommand
 
     private final Properties filterProperties = new Properties( System.getProperties() );
     private final IzPackTarget target;
-    private final InstallLayout layout;
+    private final InstallationLayout layout;
 
     private File izPackInput;
     private File izPackUserInput;
@@ -69,7 +69,7 @@ public class IzPackInstallerCommand extends MojoCommand
         super( mymojo );
         this.target = target;
         this.layout = target.getLayout();
-        File imageDir = layout.getInstallHomeDir().getParentFile();
+        File imageDir = layout.getBaseDirectory().getParentFile();
         izPackBase = new File( imageDir, target.getId() );
 
         if ( target.getFinalName() != null )
@@ -451,7 +451,7 @@ public class IzPackInstallerCommand extends MojoCommand
             filterProperties.put( "unix.shortcuts", izPackUnixShortcuts.getPath() );
         }
         filterProperties.put( "user.input", izPackUserInput.getPath() );
-        filterProperties.put( "image.basedir", layout.getInstallHomeDir().getPath() );
+        filterProperties.put( "image.basedir", layout.getBaseDirectory().getPath() );
 
         if ( target.getOsFamily().equals( "mac" ) || target.getOsFamily().equals( "unix" ) )
         {
