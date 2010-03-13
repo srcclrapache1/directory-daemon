@@ -135,7 +135,7 @@ public abstract class MojoCommand
                 
                 if ( packagedFiles[ii].isExpandable() )
                 {
-                    File dest = new File( target.getLayout().getInstallHomeDir(), packagedFiles[ii].getDestinationPath() );
+                    File dest = new File( target.getLayout().getBaseDirectory(), packagedFiles[ii].getDestinationPath() );
                     if ( ! dest.exists() )
                     {
                         dest.mkdirs();
@@ -165,7 +165,7 @@ public abstract class MojoCommand
                         + ". It does not have a jar, war or zip extension" );
                 }
                 
-                File dest = new File( target.getLayout().getInstallHomeDir(), packagedFiles[ii].getDestinationPath() );
+                File dest = new File( target.getLayout().getBaseDirectory(), packagedFiles[ii].getDestinationPath() );
                 
                 if ( packagedFiles[ii].isDirectory() )
                 {

@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.directory.daemon.InstallLayout;
+import org.apache.directory.daemon.InstallationLayout;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.codehaus.plexus.util.FileUtils;
@@ -40,7 +40,7 @@ public class CreateImageCommand extends MojoCommand
 {
     private final Properties filterProperties = new Properties( System.getProperties() );
     private final Target target;
-    private InstallLayout layout;
+    private InstallationLayout layout;
 
 
     public CreateImageCommand( ServiceInstallersMojo mojo, Target target )
@@ -81,7 +81,7 @@ public class CreateImageCommand extends MojoCommand
         // make the layout directories
         log.info( "Creating image ... " );
         File dir = new File( mymojo.getOutputDirectory(), target.getId() );
-        layout = new InstallLayout( dir );
+        layout = new InstallationLayout( dir );
         target.setLayout( layout );
         layout.mkdirs();
 
@@ -379,7 +379,7 @@ public class CreateImageCommand extends MojoCommand
 
         if ( target.getSourcesDirectory() != null )
         {
-            File sourcesDirectory = new File( layout.getInstallHomeDir(), target.getSourcesTargetPath() );
+            File sourcesDirectory = new File( layout.getBaseDirectory(), target.getSourcesTargetPath() );
             try
             {
                 FileUtils.copyDirectoryStructure( target.getSourcesDirectory(), sourcesDirectory );
@@ -395,7 +395,7 @@ public class CreateImageCommand extends MojoCommand
 
         if ( target.getDocsDirectory() != null )
         {
-            File docsDirectory = new File( layout.getInstallHomeDir(), target.getDocsTargetPath() );
+            File docsDirectory = new File( layout.getBaseDirectory(), target.getDocsTargetPath() );
             try
             {
                 FileUtils.copyDirectoryStructure( target.getDocsDirectory(), docsDirectory );
@@ -409,7 +409,7 @@ public class CreateImageCommand extends MojoCommand
 
         // -- if present copy the NOTICE.txt file --
 
-        File noticeFileTarget = new File( layout.getInstallHomeDir(), "NOTICE.txt" );
+        File noticeFileTarget = new File( layout.getBaseDirectory(), "NOTICE.txt" );
         File noticeFile = new File( "NOTICE.txt" );
         if ( noticeFile.exists() )
         {

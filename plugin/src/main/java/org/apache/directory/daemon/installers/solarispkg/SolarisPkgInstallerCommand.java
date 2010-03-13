@@ -112,7 +112,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
             pkgTranslator = target.getPkgTranslator();
         }
 
-        File baseDirectory = target.getLayout().getInstallHomeDir();
+        File baseDirectory = target.getLayout().getBaseDirectory();
         File imagesDirectory = baseDirectory.getParentFile();
 
         log.info( "Creating Solaris PKG Installer..." );
@@ -141,7 +141,7 @@ public class SolarisPkgInstallerCommand extends MojoCommand
         catch ( IOException e )
         {
             log.error( e.getMessage() );
-            throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getInstallHomeDir()
+            throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getBaseDirectory()
                 + ") to the PKG directory (" + apacheDsHomeDirectory + ")" );
         }
 

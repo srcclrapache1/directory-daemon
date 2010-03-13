@@ -98,7 +98,7 @@ public class BinInstallerCommand extends MojoCommand
             return;
         }
 
-        File baseDirectory = target.getLayout().getInstallHomeDir();
+        File baseDirectory = target.getLayout().getBaseDirectory();
         File imagesDirectory = baseDirectory.getParentFile();
 
         log.info( "Creating Bin Installer..." );
@@ -120,7 +120,7 @@ public class BinInstallerCommand extends MojoCommand
         catch ( IOException e )
         {
             log.error( e.getMessage() );
-            throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getInstallHomeDir()
+            throw new MojoFailureException( "Failed to copy image (" + target.getLayout().getBaseDirectory()
                 + ") to the Bin directory (" + binRootFolderDirectory + ")" );
         }
 

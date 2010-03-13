@@ -67,7 +67,7 @@ public class Bootstrapper
     /** Random number generator */
     private Random random;
 
-    private InstanceLayout layout;
+    private InstallationLayout layout;
     private ClassLoader application;
     private ClassLoader parent;
     private String startClassName;
@@ -80,12 +80,11 @@ public class Bootstrapper
     public void setInstallationLayout( String installationBase )
     {
         log.debug( "Setting layout in Bootstrapper using base: " + installationBase );
-        File instanceHome = new File( System.getProperty( "INSTANCE_HOME" ) );
-        layout = new InstanceLayout( new InstallLayout( new File( installationBase ) ), instanceHome );
+        layout = new InstallationLayout( installationBase );
 
         try
         {
-            layout.verifyLayout();
+            layout.verifyInstallation();
         }
         catch ( Throwable t )
         {
@@ -95,13 +94,13 @@ public class Bootstrapper
         try
         {
             Properties props = new Properties();
-            props.load( new FileInputStream( layout.getInstallLayout().getBootstrapperConfigurationFile() ) );
+            props.load( new FileInputStream( layout.getBootstrapperConfigurationFile() ) );
             startClassName = props.getProperty( START_CLASS_PROP );
             stopClassName = props.getProperty( STOP_CLASS_PROP );
         }
         catch ( Exception e )
         {
-            log.error( "Failed while loading: " + layout.getInstallLayout().getBootstrapperConfigurationFile(), e );
+            log.error( "Failed while loading: " + layout.getBootstrapperConfigurationFile(), e );
             System.exit( ExitCodes.PROPLOAD );
         }
     }
@@ -110,7 +109,7 @@ public class Bootstrapper
     public void setParentLoader( ClassLoader parentLoader )
     {
         this.parent = parentLoader;
-        URL[] jars = layout.getInstallLayout().getAllJars();
+        URL[] jars = layout.getAllJars();
         this.application = new URLClassLoader( jars, parentLoader );
 
         if ( log.isDebugEnabled() )
@@ -156,7 +155,7 @@ public class Bootstrapper
         }
         catch ( Exception e )
         {
-            log.error( "Failed on " + startClassName + ".init(InstallLayout, String[])", e );
+            log.error( "Failed on " + startClassName + ".init(InstallationLayout, String[])", e );
             System.exit( ExitCodes.INITIALIZATION );
         }
         Thread.currentThread().setContextClassLoader( parent );
@@ -233,7 +232,7 @@ public class Bootstrapper
 
         if ( shutdownPort == -1 )
         {
-            File shutdownPortFile = new File( layout.getRunDir(), SHUTDOWN_FILE );
+            File shutdownPortFile = new File( layout.getRunDirectory(), SHUTDOWN_FILE );
             if ( shutdownPortFile.exists() )
             {
                 BufferedReader in = new BufferedReader( new FileReader( shutdownPortFile ) );
@@ -280,7 +279,7 @@ public class Bootstrapper
         try
         {
             shutdownPort = AvailablePortFinder.getNextAvailable( 30003 );
-            File shutdownPortFile = new File( layout.getRunDir(), SHUTDOWN_FILE );
+            File shutdownPortFile = new File( layout.getRunDirectory(), SHUTDOWN_FILE );
             if ( shutdownPortFile.exists() )
             {
                 String msg = "Shutdown port file " + shutdownPortFile + " exists. ";
@@ -299,7 +298,7 @@ public class Bootstrapper
             {
                 public void run()
                 {
-                    File shutdownPortFile = new File( layout.getRunDir(), SHUTDOWN_FILE );
+                    File shutdownPortFile = new File( layout.getRunDirectory(), SHUTDOWN_FILE );
                     if ( shutdownPortFile.exists() )
                     {
                         shutdownPortFile.delete();
@@ -417,7 +416,7 @@ public class Bootstrapper
             log.debug( "Failed on socket close", e );
         }
 
-        File shutdownPortFile = new File( layout.getRunDir(), SHUTDOWN_FILE );
+        File shutdownPortFile = new File( layout.getRunDirectory(), SHUTDOWN_FILE );
         if ( shutdownPortFile.exists() )
         {
             shutdownPortFile.delete();

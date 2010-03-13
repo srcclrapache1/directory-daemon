@@ -38,7 +38,6 @@
             <string>wrapper.syslog.ident=${app.name}</string>
             <string>wrapper.pidfile=/usr/local/${app.name}-${app.version}/instances/default/default.pid</string>
             <string>wrapper.daemonize=FALSE</string>
-            <string>wrapper.ping.timeout=180</string>
         </array>
                 
         <key>RunAtLoad</key>
