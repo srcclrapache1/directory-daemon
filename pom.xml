@@ -30,7 +30,7 @@
   <artifactId>daemon-parent</artifactId>
   <name>Apache Directory Daemon</name>
   <packaging>pom</packaging>
-  <version>1.1.7-SNAPSHOT</version>
+  <version>1.1.8-SNAPSHOT</version>
   <description>
     Reusable framework for daemon applications based on Commons Daemon
     Jsvc and Procrun. A small installation layout pattern combined with
@@ -54,7 +54,7 @@
 
     <!-- Set versions for depending projects -->
     <distMgmtSiteUrl>scpexe://people.apache.org/www/directory.apache.org/daemon/gen-docs/${version}/</distMgmtSiteUrl>
-    <org.apache.directory.shared.version>0.9.18-SNAPSHOT</org.apache.directory.shared.version>
+    <org.apache.directory.shared.version>0.9.19-SNAPSHOT</org.apache.directory.shared.version>
     <skin.version>1.0.1</skin.version>
     
     <!-- Set versions for depending jars -->
