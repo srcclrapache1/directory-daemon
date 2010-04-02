@@ -30,7 +30,7 @@
   <artifactId>daemon-parent</artifactId>
   <name>Apache Directory Daemon</name>
   <packaging>pom</packaging>
-  <version>1.1.8</version>
+  <version>1.1.9-SNAPSHOT</version>
   <description>
     Reusable framework for daemon applications based on Commons Daemon
     Jsvc and Procrun. A small installation layout pattern combined with
@@ -129,9 +129,9 @@
   </dependencies>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/tags/daemon-parent-1.1.8</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/tags/daemon-parent-1.1.8</developerConnection>
-    <url>http://svn.apache.org/viewvc/directory/daemon/tags/daemon-parent-1.1.8</url>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/directory/daemon/branches/daemon-1.1.8</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/directory/daemon/branches/daemon-1.1.8</developerConnection>
+    <url>http://svn.apache.org/viewvc/directory/daemon/branches/daemon-1.1.8</url>
   </scm>
 
   <distributionManagement>
