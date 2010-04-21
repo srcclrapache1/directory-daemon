@@ -76,8 +76,8 @@ cp ../rootFolder/instance/apacheds.conf $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
 verifyExitCode
 cp ../rootFolder/instance/log4j.properties $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
 verifyExitCode
-cp ../rootFolder/instance/server.xml $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
-verifyExitCode
+#cp ../rootFolder/instance/server.xml $DEFAULT_INSTANCE_HOME_DIRECTORY/conf/
+#verifyExitCode
 
 # Filtering and copying the init.d script
 sed -e "s;@APACHEDS.HOME@;${APACHEDS_HOME_DIRECTORY};" ../rootFolder/instance/apacheds-init > ../rootFolder/instance/apacheds-init.tmp
