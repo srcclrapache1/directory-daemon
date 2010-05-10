@@ -36,9 +36,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>${pom.groupId}</groupId>
       <artifactId>daemon-bootstrappers</artifactId>
-      <version>${pom.version}</version>
+      <groupId>${project.groupId}</groupId>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
