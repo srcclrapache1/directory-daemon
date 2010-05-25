@@ -59,8 +59,8 @@
     <!-- Set versions for depending jars -->
     <commons.daemon.version>1.0.1</commons.daemon.version>
     <junit.version>4.7</junit.version>
-    <slf4j.api.version>1.5.10</slf4j.api.version>
-    <slf4j.log4j12.version>1.5.10</slf4j.log4j12.version>
+    <slf4j.api.version>1.5.11</slf4j.api.version>
+    <slf4j.log4j12.version>1.5.11</slf4j.log4j12.version>
     <wrapper.version>3.2.3</wrapper.version>
   </properties>
 
