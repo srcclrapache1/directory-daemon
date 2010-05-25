@@ -53,7 +53,7 @@ f none /opt/apacheds/lib/commons-io-1.4.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/commons-lang-2.5.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/dom4j-1.6.1.jar 0644 apacheds apacheds
 d none /opt/apacheds/lib/ext 0744 apacheds apacheds
-f none /opt/apacheds/lib/jcl-over-slf4j-1.5.10.jar 0644 apacheds apacheds
+f none /opt/apacheds/lib/jcl-over-slf4j-1.5.11.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/jetty-6.1.14.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/jetty-util-6.1.14.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/libwrapper.so 0644 apacheds apacheds
@@ -74,8 +74,8 @@ f none /opt/apacheds/lib/shared-ldap-schema-dao-0.9.19-SNAPSHOT.jar 0644 apached
 f none /opt/apacheds/lib/shared-ldap-schema-loader-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-schema-manager-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldif-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/slf4j-api-1.5.10.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/slf4j-log4j12-1.5.10.jar 0644 apacheds apacheds
+f none /opt/apacheds/lib/slf4j-api-1.5.11.jar 0644 apacheds apacheds
+f none /opt/apacheds/lib/slf4j-log4j12-1.5.11.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/spring-beans-2.5.6.SEC01.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/spring-context-2.5.6.SEC01.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/spring-core-2.5.6.SEC01.jar 0644 apacheds apacheds
