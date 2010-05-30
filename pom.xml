@@ -49,10 +49,27 @@
     <module>plugin</module>
   </modules>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.directory.buildtools</groupId>
+            <artifactId>directory-checkstyle</artifactId>
+            <version>${org.apache.directory.buildtools.directory-checkstyle.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+
   <properties>
     <projectName>Apache Directory Daemon</projectName>
 
     <!-- Set versions for depending projects -->
+    <org.apache.directory.buildtools.directory-checkstyle.version>0.1-SNAPSHOT</org.apache.directory.buildtools.directory-checkstyle.version>
     <distMgmtSiteUrl>scpexe://people.apache.org/www/directory.apache.org/daemon/gen-docs/${version}/</distMgmtSiteUrl>
     <skin.version>1.0.1</skin.version>
     
@@ -206,6 +223,10 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
+        <configuration>
+          <xrefLocation>${project.reporting.outputDirectory}/../xref</xrefLocation>
+          <xrefTestLocation>${project.reporting.outputDirectory}/../xref-test</xrefTestLocation>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -216,6 +237,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <configLocation>directory-checks.xml</configLocation>
+          <xrefLocation>${project.reporting.outputDirectory}/../xref</xrefLocation>
+        </configuration>
       </plugin>
     </plugins>
   </reporting>
