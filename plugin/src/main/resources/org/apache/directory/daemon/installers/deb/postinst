@@ -27,8 +27,8 @@ chmod +x /etc/init.d/apacheds-${app.version}-default
 USER=`eval "id -u -n apacheds 2>/dev/null || :"`
 if [ ! "Xapacheds" = "X$USER" ]
 then
-	/usr/sbin/groupadd apacheds >/dev/null 2>&1 || :
-	/usr/sbin/useradd -g apacheds -d /opt/apacheds-${app.version} apacheds >/dev/null 2>&1 || :
+	/usr/sbin/groupadd --system apacheds >/dev/null 2>&1 || :
+	/usr/sbin/useradd --system -g apacheds -d /opt/apacheds-${app.version} apacheds >/dev/null 2>&1 || :
 fi
 
 # Modifying owner
