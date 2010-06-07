@@ -34,7 +34,6 @@ import org.codehaus.plexus.util.FileUtils;
  * Command to create installation image (footprint) before installers are triggered.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class CreateImageCommand extends MojoCommand
 {

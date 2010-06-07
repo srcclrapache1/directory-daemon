@@ -28,7 +28,6 @@ import java.util.Calendar;
  * A Nullsoft Installer System (NSIS) installer for the Windows platform
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev: 434414 $
  */
 public class NsisTarget extends Target
 {

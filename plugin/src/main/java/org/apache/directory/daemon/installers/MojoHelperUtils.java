@@ -49,7 +49,6 @@ import org.codehaus.plexus.util.InterpolationFilterReader;
  * Some helper/utility methods for this plugin.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class MojoHelperUtils
 {

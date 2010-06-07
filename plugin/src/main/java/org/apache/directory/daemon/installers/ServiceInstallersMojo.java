@@ -66,7 +66,6 @@ import org.codehaus.plexus.util.Os;
  * @phase package
  * @requiresDependencyResolution runtime
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class ServiceInstallersMojo extends AbstractMojo
 {

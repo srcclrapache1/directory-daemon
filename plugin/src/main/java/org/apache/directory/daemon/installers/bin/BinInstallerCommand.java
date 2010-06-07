@@ -38,7 +38,6 @@ import org.codehaus.plexus.util.FileUtils;
  * Bin (Binary) Installer command for Linux.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev: 434414 $
  */
 public class BinInstallerCommand extends MojoCommand
 {

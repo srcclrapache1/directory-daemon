@@ -42,7 +42,6 @@ import java.net.URL;
  * Nullsoft INstaller System (NSIS) Installer command for Windows installers
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev: 434414 $
  */
 public class NsisInstallerCommand extends MojoCommand
 {

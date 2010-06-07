@@ -25,7 +25,6 @@ package org.apache.directory.daemon.installers;
  * A file packaged within the installer.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class PackagedFile
 {

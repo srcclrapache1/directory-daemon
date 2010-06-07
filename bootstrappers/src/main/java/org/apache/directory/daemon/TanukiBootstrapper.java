@@ -29,7 +29,6 @@ import org.tanukisoftware.wrapper.WrapperManager;
  * The bootstrapper used by Tanuki Wrapper.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev: $
  */
 public class TanukiBootstrapper extends Bootstrapper implements WrapperListener
 {

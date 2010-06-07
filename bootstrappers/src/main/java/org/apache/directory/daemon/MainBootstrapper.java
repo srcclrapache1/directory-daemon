@@ -29,7 +29,6 @@ import org.slf4j.Logger;
  * executable bootstrapper.jar so it can be launched as a simple java application.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class MainBootstrapper extends Bootstrapper
 {

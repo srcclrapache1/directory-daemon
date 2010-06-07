@@ -36,7 +36,6 @@ import org.apache.directory.daemon.installers.Target;
  * http://developer.apple.com/documentation/Darwin/Reference/Manpages/man1/packagemaker.1.html
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$, $Date$
  */
 public class MacOsXPkgTarget extends Target
 {

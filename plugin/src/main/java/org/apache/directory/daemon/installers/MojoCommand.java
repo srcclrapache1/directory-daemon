@@ -39,7 +39,6 @@ import org.codehaus.plexus.util.FileUtils;
  * A Mojo command pattern interface.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public abstract class MojoCommand
 {

@@ -30,7 +30,6 @@ import org.apache.directory.daemon.installers.Target;
  * in every Linux.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$, $Date$
  */
 public class BinTarget extends Target
 {

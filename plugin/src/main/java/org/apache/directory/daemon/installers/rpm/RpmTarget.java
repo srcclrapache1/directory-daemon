@@ -29,7 +29,6 @@ import org.apache.directory.daemon.installers.Target;
  * An Rpm package target.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class RpmTarget extends Target
 {

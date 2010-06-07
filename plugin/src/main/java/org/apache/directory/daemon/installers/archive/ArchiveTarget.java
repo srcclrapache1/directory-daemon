@@ -27,7 +27,6 @@ import org.apache.directory.daemon.installers.Target;
  * An archive installer for any platform.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$, $Date$
  */
 public class ArchiveTarget extends Target
 {

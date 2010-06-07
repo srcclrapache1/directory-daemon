@@ -33,7 +33,6 @@ import java.util.Properties;
  * out.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class ReflectionProperties extends Properties
 {

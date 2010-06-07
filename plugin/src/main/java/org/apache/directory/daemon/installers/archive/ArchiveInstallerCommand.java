@@ -42,7 +42,6 @@ import org.codehaus.plexus.util.FileUtils;
  * Archive Installer command for any platform.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev: 434414 $
  */
 public class ArchiveInstallerCommand extends MojoCommand
 {

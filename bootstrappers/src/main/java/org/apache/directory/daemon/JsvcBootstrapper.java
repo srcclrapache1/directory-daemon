@@ -28,7 +28,6 @@ import org.slf4j.LoggerFactory;
  * The bootstrapper used by the jsvc process manager.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class JsvcBootstrapper extends Bootstrapper
 {

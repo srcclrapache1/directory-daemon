@@ -37,7 +37,6 @@ import org.apache.tools.ant.taskdefs.Execute;
  * PKG Installer command for creating Solaris packages.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev: 434414 $
  */
 public class SolarisPkgInstallerCommand extends MojoCommand
 {

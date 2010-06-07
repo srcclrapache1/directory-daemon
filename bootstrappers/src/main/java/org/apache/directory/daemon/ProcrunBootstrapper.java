@@ -30,7 +30,6 @@ import org.slf4j.LoggerFactory;
  * 
  * @todo explain procrun behavoir
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class ProcrunBootstrapper extends Bootstrapper
 {

@@ -29,7 +29,6 @@ import org.apache.directory.daemon.installers.Target;
  * An IzPack multiplatform installer target.
  *  
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class IzPackTarget extends Target
 {

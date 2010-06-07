@@ -31,7 +31,6 @@ import org.apache.directory.daemon.InstallationLayout;
  * The superclass for all installer targets.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class Target
 {

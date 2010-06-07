@@ -24,7 +24,6 @@ package org.apache.directory.daemon;
  * Interface used by DaemonApplications.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public interface DaemonApplication
 {

@@ -30,7 +30,6 @@ import org.apache.directory.daemon.installers.Target;
  * An Inno installer target for Windows platforms.
  *  
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class InnoTarget extends Target
 {

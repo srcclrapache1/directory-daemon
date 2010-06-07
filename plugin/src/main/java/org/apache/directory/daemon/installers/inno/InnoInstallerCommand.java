@@ -47,7 +47,6 @@ import org.codehaus.plexus.util.Os;
  * The IzPack installer command.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class InnoInstallerCommand extends MojoCommand
 {

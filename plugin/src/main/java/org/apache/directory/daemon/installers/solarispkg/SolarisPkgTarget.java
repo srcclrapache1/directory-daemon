@@ -32,7 +32,6 @@ import org.apache.directory.daemon.installers.Target;
  * bundled in the Solaris OS.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$, $Date$
  */
 public class SolarisPkgTarget extends Target
 {

@@ -32,7 +32,6 @@ import org.apache.directory.daemon.installers.Target;
  * Debian operating system.
  *
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$, $Date$
  */
 public class DebTarget extends Target
 {

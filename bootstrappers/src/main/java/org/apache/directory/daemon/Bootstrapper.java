@@ -48,7 +48,6 @@ import org.slf4j.Logger;
  * calls exists here.
  * 
  * @author <a href="mailto:dev@directory.apache.org">Apache Directory Project</a>
- * @version $Rev$
  */
 public class Bootstrapper
 {
