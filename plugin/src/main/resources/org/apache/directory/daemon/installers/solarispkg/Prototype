@@ -66,7 +66,6 @@ f none /opt/apacheds/lib/shared-cursor-0.9.19-SNAPSHOT.jar 0644 apacheds apached
 f none /opt/apacheds/lib/shared-dsml-parser-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-i18n-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/shared-ldap-constants-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-converter-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-jndi-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-schema-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
