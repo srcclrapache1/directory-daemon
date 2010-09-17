@@ -70,9 +70,6 @@ f none /opt/apacheds/lib/shared-ldap-constants-0.9.19-SNAPSHOT.jar 0644 apacheds
 f none /opt/apacheds/lib/shared-ldap-converter-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-jndi-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-schema-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/shared-ldap-schema-dao-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/shared-ldap-schema-loader-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/shared-ldap-schema-manager-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldif-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/slf4j-api-1.5.11.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/slf4j-log4j12-1.5.11.jar 0644 apacheds apacheds
