@@ -60,8 +60,6 @@ f none /opt/apacheds/lib/libwrapper.so 0644 apacheds apacheds
 f none /opt/apacheds/lib/log4j-1.2.16.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/mina-core-2.0.0-RC1.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/servlet-api-2.5-6.1.14.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/shared-asn1-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
-f none /opt/apacheds/lib/shared-asn1-codec-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-dsml-parser-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-i18n-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
 f none /opt/apacheds/lib/shared-ldap-0.9.19-SNAPSHOT.jar 0644 apacheds apacheds
